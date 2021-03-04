@@ -15,6 +15,10 @@ namespace WorkAssistantFV
         public WorkAssistant()
         {
             InitializeComponent();
+            bunifuFormDock1.SubscribeControlToDragEvents(bunifuGradientPanel1);
+            bunifuFormDock1.SubscribeControlToDragEvents(tabPage1);
+            bunifuFormDock1.SubscribeControlToDragEvents(tabPage2);
+
         }
 
 

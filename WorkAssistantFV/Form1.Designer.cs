@@ -80,13 +80,14 @@ namespace WorkAssistantFV
             this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuFormDock1 = new Bunifu.UI.WinForms.BunifuFormDock();
             this.bunifuPages1 = new Bunifu.UI.WinForms.BunifuPages();
-            this.SignIn = new System.Windows.Forms.TabPage();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.bunifuButton3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.bunifuSeparator2 = new Bunifu.UI.WinForms.BunifuSeparator();
             this.bunifuTextBox2 = new Bunifu.UI.WinForms.BunifuTextBox();
             this.bunifuTextBox1 = new Bunifu.UI.WinForms.BunifuTextBox();
             this.bunifuLabel2 = new Bunifu.UI.WinForms.BunifuLabel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.bunifuLabel3 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuButton4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.bunifuTextBox9 = new Bunifu.UI.WinForms.BunifuTextBox();
             this.bunifuTextBox8 = new Bunifu.UI.WinForms.BunifuTextBox();
@@ -96,11 +97,10 @@ namespace WorkAssistantFV
             this.bunifuTextBox4 = new Bunifu.UI.WinForms.BunifuTextBox();
             this.bunifuTextBox3 = new Bunifu.UI.WinForms.BunifuTextBox();
             this.bunifuSeparator1 = new Bunifu.UI.WinForms.BunifuSeparator();
-            this.bunifuLabel3 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuGradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.bunifuPages1.SuspendLayout();
-            this.SignIn.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -382,7 +382,7 @@ namespace WorkAssistantFV
             // 
             this.bunifuPages1.Alignment = System.Windows.Forms.TabAlignment.Bottom;
             this.bunifuPages1.AllowTransitions = true;
-            this.bunifuPages1.Controls.Add(this.SignIn);
+            this.bunifuPages1.Controls.Add(this.tabPage1);
             this.bunifuPages1.Controls.Add(this.tabPage2);
             this.bunifuPages1.Location = new System.Drawing.Point(287, 22);
             this.bunifuPages1.Multiline = true;
@@ -412,21 +412,21 @@ namespace WorkAssistantFV
             this.bunifuPages1.Transition = animation1;
             this.bunifuPages1.TransitionType = Utilities.BunifuPages.BunifuAnimatorNS.AnimationType.Custom;
             // 
-            // SignIn
+            // tabPage1
             // 
-            this.SignIn.BackColor = System.Drawing.SystemColors.Info;
-            this.SignIn.Controls.Add(this.bunifuButton3);
-            this.SignIn.Controls.Add(this.bunifuSeparator2);
-            this.SignIn.Controls.Add(this.bunifuTextBox2);
-            this.SignIn.Controls.Add(this.bunifuTextBox1);
-            this.SignIn.Controls.Add(this.bunifuLabel2);
-            this.SignIn.Location = new System.Drawing.Point(4, 4);
-            this.SignIn.Name = "SignIn";
-            this.SignIn.Padding = new System.Windows.Forms.Padding(3);
-            this.SignIn.Size = new System.Drawing.Size(684, 519);
-            this.SignIn.TabIndex = 0;
-            this.SignIn.Text = "SignIn";
-            this.SignIn.Click += new System.EventHandler(this.SignIn_Click);
+            this.tabPage1.BackColor = System.Drawing.SystemColors.Info;
+            this.tabPage1.Controls.Add(this.bunifuButton3);
+            this.tabPage1.Controls.Add(this.bunifuSeparator2);
+            this.tabPage1.Controls.Add(this.bunifuTextBox2);
+            this.tabPage1.Controls.Add(this.bunifuTextBox1);
+            this.tabPage1.Controls.Add(this.bunifuLabel2);
+            this.tabPage1.Location = new System.Drawing.Point(4, 4);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(684, 519);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "SignIn";
+            this.tabPage1.Click += new System.EventHandler(this.SignIn_Click);
             // 
             // bunifuButton3
             // 
@@ -718,6 +718,22 @@ namespace WorkAssistantFV
             this.tabPage2.Size = new System.Drawing.Size(684, 519);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "SignUp";
+            // 
+            // bunifuLabel3
+            // 
+            this.bunifuLabel3.AllowParentOverrides = false;
+            this.bunifuLabel3.AutoEllipsis = false;
+            this.bunifuLabel3.CursorType = null;
+            this.bunifuLabel3.Font = new System.Drawing.Font("Segoe UI Semibold", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuLabel3.ForeColor = System.Drawing.Color.ForestGreen;
+            this.bunifuLabel3.Location = new System.Drawing.Point(231, 43);
+            this.bunifuLabel3.Name = "bunifuLabel3";
+            this.bunifuLabel3.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel3.Size = new System.Drawing.Size(300, 59);
+            this.bunifuLabel3.TabIndex = 11;
+            this.bunifuLabel3.Text = "Create Account";
+            this.bunifuLabel3.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel3.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
             // bunifuButton4
             // 
@@ -1308,7 +1324,7 @@ namespace WorkAssistantFV
             this.bunifuTextBox3.Padding = new System.Windows.Forms.Padding(3);
             this.bunifuTextBox3.PasswordChar = '\0';
             this.bunifuTextBox3.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.bunifuTextBox3.PlaceholderText = "repeat password";
+            this.bunifuTextBox3.PlaceholderText = "confirm password";
             this.bunifuTextBox3.ReadOnly = false;
             this.bunifuTextBox3.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.bunifuTextBox3.SelectedText = "";
@@ -1322,7 +1338,7 @@ namespace WorkAssistantFV
             this.bunifuTextBox3.TextMarginBottom = 0;
             this.bunifuTextBox3.TextMarginLeft = 3;
             this.bunifuTextBox3.TextMarginTop = 0;
-            this.bunifuTextBox3.TextPlaceholder = "repeat password";
+            this.bunifuTextBox3.TextPlaceholder = "confirm password";
             this.bunifuTextBox3.UseSystemPasswordChar = false;
             this.bunifuTextBox3.WordWrap = true;
             // 
@@ -1342,22 +1358,6 @@ namespace WorkAssistantFV
             this.bunifuSeparator1.Size = new System.Drawing.Size(400, 17);
             this.bunifuSeparator1.TabIndex = 2;
             // 
-            // bunifuLabel3
-            // 
-            this.bunifuLabel3.AllowParentOverrides = false;
-            this.bunifuLabel3.AutoEllipsis = false;
-            this.bunifuLabel3.CursorType = null;
-            this.bunifuLabel3.Font = new System.Drawing.Font("Segoe UI Semibold", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuLabel3.ForeColor = System.Drawing.Color.ForestGreen;
-            this.bunifuLabel3.Location = new System.Drawing.Point(231, 43);
-            this.bunifuLabel3.Name = "bunifuLabel3";
-            this.bunifuLabel3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel3.Size = new System.Drawing.Size(300, 59);
-            this.bunifuLabel3.TabIndex = 11;
-            this.bunifuLabel3.Text = "Create Account";
-            this.bunifuLabel3.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.bunifuLabel3.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            // 
             // WorkAssistant
             // 
             this.AccessibleName = "Work Assistant";
@@ -1374,8 +1374,8 @@ namespace WorkAssistantFV
             this.bunifuGradientPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.bunifuPages1.ResumeLayout(false);
-            this.SignIn.ResumeLayout(false);
-            this.SignIn.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
@@ -1391,7 +1391,7 @@ namespace WorkAssistantFV
         private Bunifu.UI.WinForms.BunifuFormDock bunifuFormDock1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private Bunifu.UI.WinForms.BunifuPages bunifuPages1;
-        private System.Windows.Forms.TabPage SignIn;
+        private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel2;
         private Bunifu.UI.WinForms.BunifuTextBox bunifuTextBox1;
