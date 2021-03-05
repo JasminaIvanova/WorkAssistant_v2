@@ -118,6 +118,7 @@ namespace WorkAssistantFV
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1017, 591);
             this.Controls.Add(this.bunifuTextBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Home";
             this.Text = "Home";
             this.ResumeLayout(false);

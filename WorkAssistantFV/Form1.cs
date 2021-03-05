@@ -72,7 +72,7 @@ namespace WorkAssistantFV
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            Users user = micron.GetRecord<Users>($"email='{txtEmail.Text}' AND password = MD5('{txtPassword.Text}')");
+            Users user = micron.GetRecord<Users>($"username='{txtUsername.Text}' AND password = MD5('{txtPassword.Text}')");
 
             user = new Users()
             {
@@ -89,6 +89,8 @@ namespace WorkAssistantFV
                 MessageBox.Show("password does not match!");
                 return;
             }
+
+            //if proverka za sushtestvuvasht username
             user = micron.Save(user);
             MessageBox.Show("Account succesfully created!");
 
@@ -98,7 +100,12 @@ namespace WorkAssistantFV
 
         private void btnSignIn_Click(object sender, EventArgs e)
         {
-            Users user = micron.GetRecord<Users>($"email='{txtEmail.Text}' AND password = MD5('{txtPassword.Text}')");
+            Users user = micron.GetRecord<Users>($"username='{txtUsername2.Text}' AND password = MD5('{txtPassword2.Text}')");
+            if (user == null) 
+            {
+                MessageBox.Show("Invalid username or password! Please try again!");
+                return;
+            }
             this.Visible = false;
             var home = new Home(user);
             home.ShowDialog();
