@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Micron;
+using Data.Models;
 
 namespace WorkAssistantFV
 {
     public partial class WorkAssistant : Form
     {
+        MicronDbContext micron = new MicronDbContext(); 
         public WorkAssistant()
         {
             InitializeComponent();
@@ -65,6 +68,41 @@ namespace WorkAssistantFV
         private void bunifuLabel3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnCreate_Click(object sender, EventArgs e)
+        {
+            Users user = micron.GetRecord<Users>($"email='{txtEmail.Text}' AND password = MD5('{txtPassword.Text}')");
+
+            user = new Users()
+            {
+                First_name = txtFirstName.Text,
+                Last_name = txtLastName.Text,
+                Email = txtEmail.Text,
+                Username = txtUsername.Text,
+                Password = Program.CalculateMD5(txtPassword.Text),
+                Company_name = txtCompany.Text
+            };
+
+            if (txtPasswordConfirm.Text != txtPassword.Text) 
+            {
+                MessageBox.Show("password does not match!");
+                return;
+            }
+            user = micron.Save(user);
+            MessageBox.Show("Account succesfully created!");
+
+            txtFirstName.Text = txtLastName.Text = txtEmail.Text = txtUsername.Text = txtPassword.Text = txtPasswordConfirm.Text = txtCompany.Text = string.Empty;
+            bunifuPages1.SetPage(0);
+        }
+
+        private void btnSignIn_Click(object sender, EventArgs e)
+        {
+            Users user = micron.GetRecord<Users>($"email='{txtEmail.Text}' AND password = MD5('{txtPassword.Text}')");
+            this.Visible = false;
+            var home = new Home(user);
+            home.ShowDialog();
+            this.Visible = true;
         }
     }
 }
