@@ -45,27 +45,12 @@ namespace WorkAssistantFV
 
         }
 
-        private void bunifuTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void SignIn_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void bunifuLabel2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void bunifuTextBox1_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bunifuLabel3_Click(object sender, EventArgs e)
         {
 
         }
@@ -90,6 +75,18 @@ namespace WorkAssistantFV
                 return;
             }
 
+            if (txtFirstName.Text.Length == 0) 
+            {
+                MessageBox.Show("Please insert First name!");
+                return;
+            }
+            if (txtLastName.Text.Length == 0) 
+            {
+                MessageBox.Show("Please insert last name!");
+                return;
+            }
+
+
             //if proverka za sushtestvuvasht username
             user = micron.Save(user);
             MessageBox.Show("Account succesfully created!");
@@ -110,6 +107,11 @@ namespace WorkAssistantFV
             var home = new Home(user);
             home.ShowDialog();
             this.Visible = true;
+        }
+
+        private void bunifuLabel2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
