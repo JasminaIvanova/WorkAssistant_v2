@@ -61,12 +61,12 @@ namespace WorkAssistantFV
 
             user = new Users()
             {
-                First_name = txtFirstName.Text,
-                Last_name = txtLastName.Text,
-                Email = txtEmail.Text,
-                Username = txtUsername.Text,
-                Password = Program.CalculateMD5(txtPassword.Text),
-                Company_name = txtCompany.Text
+                first_name = txtFirstName.Text,
+                last_name = txtLastName.Text,
+                email = txtEmail.Text,
+                username = txtUsername.Text,
+                password = Program.CalculateMD5(txtPassword.Text),
+                company_name = txtCompany.Text
             };
 
             if (txtPasswordConfirm.Text != txtPassword.Text) 
@@ -85,9 +85,48 @@ namespace WorkAssistantFV
                 MessageBox.Show("Please insert last name!");
                 return;
             }
+            if (txtPassword.Text.Length == 0)
+            {
+                MessageBox.Show("Please insert password!");
+                return;
+            }
+            if (txtPasswordConfirm.Text.Length == 0)
+            {
+                MessageBox.Show("Please confirm your password!");
+                return;
+            }
+            if (txtEmail.Text.Length == 0)
+            {
+                MessageBox.Show("Please enter your email address!");
+                return;
+            }
+            if (txtUsername.Text.Length == 0)
+            {
+                MessageBox.Show("Please insert username!");
+                return;
+            }
 
+            List<Users> usersExisting = micron.GetRecords<Users>("SELECT username FROM users").ToList();
+            List<Users> emailsExisting = micron.GetRecords<Users>("SELECT email FROM users").ToList();
 
-            //if proverka za sushtestvuvasht username
+            foreach (var username in usersExisting) 
+            {
+                if (username.username == txtUsername.Text) 
+                {
+                    MessageBox.Show("This username is already taken!");
+                    return;
+                }
+            }
+
+            foreach (var email in emailsExisting)
+            {
+                if (email.email == txtEmail.Text)
+                {
+                    MessageBox.Show("This email is already used!");
+                    return;
+                }
+            }
+
             user = micron.Save(user);
             MessageBox.Show("Account succesfully created!");
 
@@ -107,9 +146,15 @@ namespace WorkAssistantFV
             var home = new Home(user);
             home.ShowDialog();
             this.Visible = true;
+            txtUsername2.Text = txtPassword2.Text = string.Empty;
         }
 
         private void bunifuLabel2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }

@@ -366,3 +366,6 @@ C:\Users\Jessy\source\repos\WorkAssistant_v2\WorkAssistantFV\obj\Debug\WorkAssis
 C:\Users\Jessy\source\repos\WorkAssistant_v2\WorkAssistantFV\obj\Debug\WorkAssistantFV.exe
 C:\Users\Jessy\source\repos\WorkAssistant_v2\WorkAssistantFV\obj\Debug\WorkAssistantFV.pdb
 C:\Users\Jessy\source\repos\WorkAssistant_v2\WorkAssistantFV\obj\Debug\WorkAssistantFV.Home.resources
+C:\Users\Jessy\source\repos\WorkAssistant_v2\WorkAssistantFV\bin\Debug\Bunifu.Dataviz.WinForms.dll
+C:\Users\Jessy\source\repos\WorkAssistant_v2\WorkAssistantFV\bin\Debug\Bunifu.Dataviz.WinForms.xml
+C:\Users\Jessy\source\repos\WorkAssistant_v2\WorkAssistantFV\obj\Debug\WorkAssistantFV.ViewModel.UserTask.resources

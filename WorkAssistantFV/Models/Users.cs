@@ -10,11 +10,11 @@ namespace Data.Models
  {
         [Primary]
         public Int32 id {get; set;}
-        public string First_name {get; set;}
-        public string Last_name {get; set;}
-        public string Username {get; set;}
-        public string Email {get; set;}
-        public string Password {get; set;}
-        public string Company_name {get; set;}
+        public String first_name {get; set;}
+        public String last_name {get; set;}
+        public String username {get; set;}
+        public String email {get; set;}
+        public String password {get; set;}
+        public String company_name {get; set;}
  }
 }

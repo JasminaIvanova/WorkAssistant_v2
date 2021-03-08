@@ -19,7 +19,7 @@ namespace WorkAssistantFV
         {
             MicronConfig config = new MicronConfig()
             {
-                DatabaseName = "login",
+                DatabaseName = "WorkAssistant",
                 Host = "127.0.0.1",
                 User = "root",
                 Password = "0000",
