@@ -1,4 +1,5 @@
 ﻿using Data.Models;
+using Micron;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,7 @@ namespace WorkAssistantFV
 {
     public partial class Home : Form
     {
+        MicronDbContext micron = new MicronDbContext();
         public Home(Users user)
         {
             InitializeComponent();
@@ -66,7 +68,8 @@ namespace WorkAssistantFV
 
         private void bunifuCircleProgress1_ProgressChanged(object sender, Bunifu.UI.WinForms.BunifuCircleProgress.ProgressChangedEventArgs e)
         {
-
+            //done tasks*100/all tasks- primerno
+           //neshto.Value   = 
         }
 
         private void bunifuButton3_Click(object sender, EventArgs e)
@@ -85,6 +88,62 @@ namespace WorkAssistantFV
         }
 
         public void addItem(string text) 
+        {
+
+        }
+        private void bunifuTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuImageButton1_Click(object sender, EventArgs e)
+        {
+            
+            
+            User_Tasks users_task = micron.GetRecord<User_Tasks>($"title='{taskTitleBox.Text}' AND description = '{taskDescriptionBox.Text}'");
+
+            users_task = new User_Tasks()
+            {
+                task_title = taskTitleBox.Text,
+                task_description = taskDescriptionBox.Text,
+                //task_date= dateTimePicker1.Value,
+                //task_time = dateTimePicker2.Text,
+               
+                //ne stava zashtoto value a ne text i posle nqkak shte go izmislim :)
+            };
+
+            
+           
+          
+
+            users_task = micron.Save(users_task);
+            MessageBox.Show("Task succesfully created!");
+
+           // taskTitleBox.Text = taskDescriptionBox.Text = dateTimePicker1.Text = dateTimePicker2.Text = string.Empty;
+          
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void taskDescriptionBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void taskTitleBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void datePicker_ValueChanged(object sender, EventArgs e)
         {
 
         }

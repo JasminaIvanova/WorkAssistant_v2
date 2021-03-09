@@ -58,7 +58,7 @@ namespace WorkAssistantFV
         private void btnCreate_Click(object sender, EventArgs e)
         {
             Users user = micron.GetRecord<Users>($"username='{txtUsername.Text}' AND password = MD5('{txtPassword.Text}')");
-
+            
             user = new Users()
             {
                 first_name = txtFirstName.Text,

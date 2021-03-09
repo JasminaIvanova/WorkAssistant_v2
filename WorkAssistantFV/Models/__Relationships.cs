@@ -11,7 +11,7 @@ namespace Data.Models
  {
 public MicronDbContext DefaultDBContext { get; set; }
   public  Users GetUser() { return DefaultDBContext.GetRecord<Users>(this.user_id); }
-   public void SetUser(Users model)  {  DefaultDBContext.SetRelation(this, model);}
+   public void SetUser(Users model)  {  DefaultDBContext.SetRelation(this, (IMicron)model);}
 
 
  }
