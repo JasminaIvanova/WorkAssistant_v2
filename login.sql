@@ -23,8 +23,10 @@ CREATE TABLE user_tasks
     REFERENCES users(id),
     task_title VARCHAR(30) NOT NULL,
     task_description VARCHAR(256) NOT NULL,
-    effort_time INT NOT NULL, 
+    task_time TIME NOT NULL,
+    task_date DATE NOT NULL, 
     percentage INT NOT NULL
 );
+
 
 INSERT INTO user_tasks VALUES (1, 1, 'test task', 'try to add task', 0,0);
