@@ -98,26 +98,26 @@ namespace WorkAssistantFV
 
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
-            
-            
-            User_Tasks users_task = micron.GetRecord<User_Tasks>($"title='{taskTitleBox.Text}' AND description = '{taskDescriptionBox.Text}'");
 
-            users_task = new User_Tasks()
+            
+            User_Tasks task = micron.GetRecord<User_Tasks>($"task_title='{taskTitleBox.Text}' AND task_description = '{taskDescriptionBox.Text}' AND task_time = '{timePicker.Value.TimeOfDay}' AND percentage = '{int.Parse(perecnt.Value.ToString())}'");
+
+          //  datePicker.CustomFormat = "yyyy-MM-dd";
+            timePicker.Format = DateTimePickerFormat.Time;
+            timePicker.CustomFormat = "HH:mm:ss";
+
+            task = new User_Tasks()
             {
                 task_title = taskTitleBox.Text,
                 task_description = taskDescriptionBox.Text,
-                //task_date= dateTimePicker1.Value,
-                //task_time = dateTimePicker2.Text,
-               
-                //ne stava zashtoto value a ne text i posle nqkak shte go izmislim :)
+                //task_date = datePicker.Value.Date,
+                task_time = timePicker.Value.TimeOfDay,
+                percentage = int.Parse(perecnt.Value.ToString())
+                //Customer customer = micron.GetRecord<Customer>("SELECT * FROM CUSTOMERS WHERE Id=1");
             };
 
-            
-           
-          
-
-            users_task = micron.Save(users_task);
-            MessageBox.Show("Task succesfully created!");
+            task = micron.Save<User_Tasks>(task);
+            MessageBox.Show($"Task succesfully created! {timePicker.Value.TimeOfDay} {int.Parse(perecnt.Value.ToString())}");
 
            // taskTitleBox.Text = taskDescriptionBox.Text = dateTimePicker1.Text = dateTimePicker2.Text = string.Empty;
           

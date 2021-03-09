@@ -63,14 +63,15 @@ namespace WorkAssistantFV
             this.bunifuPages1 = new Bunifu.UI.WinForms.BunifuPages();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.perecnt = new System.Windows.Forms.NumericUpDown();
+            this.timePicker = new System.Windows.Forms.DateTimePicker();
+            this.datePicker = new System.Windows.Forms.DateTimePicker();
             this.taskTitleBox = new Bunifu.UI.WinForms.BunifuTextBox();
             this.taskDescriptionBox = new Bunifu.UI.WinForms.BunifuTextBox();
             this.btnAddTask = new Bunifu.UI.WinForms.BunifuImageButton();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.bunifuCircleProgress1 = new Bunifu.UI.WinForms.BunifuCircleProgress();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.datePicker = new System.Windows.Forms.DateTimePicker();
-            this.timePicker = new System.Windows.Forms.DateTimePicker();
             this.bunifuGradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox4)).BeginInit();
@@ -81,6 +82,7 @@ namespace WorkAssistantFV
             this.bunifuPages1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.perecnt)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuGradientPanel1
@@ -761,6 +763,7 @@ namespace WorkAssistantFV
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.perecnt);
             this.panel1.Controls.Add(this.timePicker);
             this.panel1.Controls.Add(this.datePicker);
             this.panel1.Controls.Add(this.taskTitleBox);
@@ -772,6 +775,38 @@ namespace WorkAssistantFV
             this.panel1.Size = new System.Drawing.Size(573, 593);
             this.panel1.TabIndex = 17;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint_1);
+            // 
+            // perecnt
+            // 
+            this.perecnt.Location = new System.Drawing.Point(252, 558);
+            this.perecnt.Name = "perecnt";
+            this.perecnt.Size = new System.Drawing.Size(120, 22);
+            this.perecnt.TabIndex = 25;
+            // 
+            // timePicker
+            // 
+            this.timePicker.CustomFormat = "HH:mm";
+            this.timePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.timePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.timePicker.Location = new System.Drawing.Point(162, 558);
+            this.timePicker.MaxDate = new System.DateTime(2021, 3, 9, 23, 59, 0, 0);
+            this.timePicker.MinDate = new System.DateTime(2021, 3, 9, 11, 59, 0, 0);
+            this.timePicker.Name = "timePicker";
+            this.timePicker.Size = new System.Drawing.Size(70, 25);
+            this.timePicker.TabIndex = 23;
+            this.timePicker.Value = new System.DateTime(2021, 3, 9, 23, 59, 0, 0);
+            // 
+            // datePicker
+            // 
+            this.datePicker.CustomFormat = "yyyy-MM-dd";
+            this.datePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.datePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.datePicker.Location = new System.Drawing.Point(5, 558);
+            this.datePicker.Name = "datePicker";
+            this.datePicker.Size = new System.Drawing.Size(130, 25);
+            this.datePicker.TabIndex = 22;
+            this.datePicker.Value = new System.DateTime(2021, 9, 3, 0, 0, 0, 0);
+            this.datePicker.ValueChanged += new System.EventHandler(this.datePicker_ValueChanged);
             // 
             // taskTitleBox
             // 
@@ -937,7 +972,7 @@ namespace WorkAssistantFV
             this.btnAddTask.FadeWhenInactive = false;
             this.btnAddTask.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
             this.btnAddTask.Image = ((System.Drawing.Image)(resources.GetObject("btnAddTask.Image")));
-            this.btnAddTask.ImageActive = null;
+            this.btnAddTask.ActiveImage = null;
             this.btnAddTask.ImageLocation = null;
             this.btnAddTask.ImageMargin = 40;
             this.btnAddTask.ImageSize = new System.Drawing.Size(47, 46);
@@ -954,7 +989,7 @@ namespace WorkAssistantFV
             this.btnAddTask.TabIndex = 17;
             this.btnAddTask.ToolTipText = "";
             this.btnAddTask.WaitOnLoad = false;
-            this.btnAddTask.Zoom = 40;
+            this.btnAddTask.ImageMargin = 40;
             this.btnAddTask.ZoomSpeed = 10;
             this.btnAddTask.Click += new System.EventHandler(this.bunifuImageButton1_Click);
             // 
@@ -1012,27 +1047,6 @@ namespace WorkAssistantFV
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "CreateTask";
             // 
-            // datePicker
-            // 
-            this.datePicker.CustomFormat = "dd-MM-yyyy";
-            this.datePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.datePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.datePicker.Location = new System.Drawing.Point(5, 558);
-            this.datePicker.Name = "datePicker";
-            this.datePicker.Size = new System.Drawing.Size(130, 25);
-            this.datePicker.TabIndex = 22;
-            this.datePicker.ValueChanged += new System.EventHandler(this.datePicker_ValueChanged);
-            // 
-            // timePicker
-            // 
-            this.timePicker.CustomFormat = "HH:MM";
-            this.timePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.timePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.timePicker.Location = new System.Drawing.Point(162, 558);
-            this.timePicker.Name = "timePicker";
-            this.timePicker.Size = new System.Drawing.Size(70, 25);
-            this.timePicker.TabIndex = 23;
-            // 
             // Home
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -1056,6 +1070,7 @@ namespace WorkAssistantFV
             this.bunifuPages1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.perecnt)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1088,5 +1103,6 @@ namespace WorkAssistantFV
         private Bunifu.UI.WinForms.BunifuTextBox taskTitleBox;
         private System.Windows.Forms.DateTimePicker timePicker;
         private System.Windows.Forms.DateTimePicker datePicker;
+        private System.Windows.Forms.NumericUpDown perecnt;
     }
 }

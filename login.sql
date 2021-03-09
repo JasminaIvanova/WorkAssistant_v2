@@ -18,13 +18,18 @@ SELECT * FROM user_tasks;
 CREATE TABLE user_tasks
 (
 	id INT PRIMARY KEY AUTO_INCREMENT,
-    user_id INT NOT NULL,
+    user_id INT,
     FOREIGN KEY (user_id)
     REFERENCES users(id),
     task_title VARCHAR(30) NOT NULL,
     task_description VARCHAR(256) NOT NULL,
-    effort_time INT NOT NULL, 
+    task_time TIME NOT NULL,
+    #task_date DATE NOT NULL, 
     percentage INT NOT NULL
 );
 
-INSERT INTO user_tasks VALUES (1, 1, 'test task', 'try to add task', 0,0);
+DROP TABLE user_tasks;
+
+#INSERT INTO user_tasks VALUES (1, 1, 'test task', 'try to add task', '00:00:00', '2020-03-08' ,0);
+
+DELETE FROM user_tasks WHERE id = 1;

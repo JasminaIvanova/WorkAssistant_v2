@@ -158,5 +158,10 @@ namespace WorkAssistantFV
         {
 
         }
+
+        private void txtFirstName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -1123,6 +1123,7 @@ namespace WorkAssistantFV
             this.txtFirstName.TextPlaceholder = "First name";
             this.txtFirstName.UseSystemPasswordChar = false;
             this.txtFirstName.WordWrap = true;
+            this.txtFirstName.TextChanged += new System.EventHandler(this.txtFirstName_TextChanged);
             // 
             // txtCompany
             // 

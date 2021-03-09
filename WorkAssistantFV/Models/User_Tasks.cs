@@ -15,7 +15,6 @@ namespace Data.Models
         public String task_title {get; set;}
         public String task_description {get; set;}
         public TimeSpan task_time {get; set;}
-        public DateTime task_date {get; set;}
         public Int32 percentage {get; set;}
  }
 }
