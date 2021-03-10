@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WorkAssistantFV.ViewModel;
 
 namespace WorkAssistantFV
 {
@@ -113,36 +114,6 @@ namespace WorkAssistantFV
 
         }
 
-        private void btnAddTask_Click(object sender, EventArgs e)
-        {
-            User_Tasks task = micron.GetRecord<User_Tasks>($"task_title='{taskTitleBox.Text}' AND task_description = '{taskDescriptionBox.Text}'");
-
-            //  datePicker.CustomFormat = "yyyy-MM-dd";
-            //timePicker.Format = DateTimePickerFormat.Time;
-            //timePicker.CustomFormat = "HH:mm:ss";
-
-            Users user = micron.GetRecord<Users>();
-
-            task = new User_Tasks()
-            {
-                user_id = user.id,
-                task_title = taskTitleBox.Text,
-                task_description = taskDescriptionBox.Text,
-                task_date = taskDate.Text,
-                task_time = taskTime.Text
-                //percentage = int.Parse(perecnt.Value.ToString())
-                //Customer customer = micron.GetRecord<Customer>("SELECT * FROM CUSTOMERS WHERE Id=1");
-            };
-
-            task = micron.Save<User_Tasks>(task);
-            MessageBox.Show($"Task succesfully created!");
-
-            // taskTitleBox.Text = taskDescriptionBox.Text = dateTimePicker1.Text = dateTimePicker2.Text = string.Empty;
-
-        }
-
-      
-
         private void taskTime_TextChanged(object sender, EventArgs e)
         {
 
@@ -152,5 +123,85 @@ namespace WorkAssistantFV
         {
 
         }
+
+
+        private void btnAddTasks_Click(object sender, EventArgs e)
+        {
+            User_Tasks task = micron.GetRecord<User_Tasks>($"task_title='{taskTitleBox.Text}' AND task_description = '{taskDescriptionBox.Text}'");
+
+            Users user = micron.GetRecord<Users>("SELECT id FROM users WHERE username=''");
+
+            task = new User_Tasks()
+            {
+                user_id = user.id,
+                task_title = taskTitleBox.Text,
+                task_description = taskDescriptionBox.Text,
+                task_date = taskDate.Text,
+                task_time = taskTime.Text,
+                percentage = int.Parse(percent.Text)
+            };
+
+            if (taskTitleBox.Text.Length == 0 || taskTitleBox == null) 
+            {
+                MessageBox.Show("Plese enter title for your task!");
+                return;
+            }
+            if (taskDescriptionBox.Text.Length == 0 || taskDescriptionBox == null)
+            {
+                MessageBox.Show("Plese enter description for your task!");
+                return;
+            }
+            if (taskDate.Text.Length == 0  || taskDate == null)
+            {
+                MessageBox.Show("Plese enter date for your task!");
+                return;
+            }
+            if (taskTime.Text.Length == 0 || taskTime == null)
+            {
+                MessageBox.Show("Plese enter time for your task!");
+                return;
+            }
+            if (percent.Text.Length == 0 || percent == null)
+            {
+                MessageBox.Show("Plese enter percentage for your task!");
+                return;
+            }
+
+            task = micron.Save<User_Tasks>(task);
+            MessageBox.Show($"Task succesfully created!");
+
+            taskTitleBox.Text = taskDescriptionBox.Text = taskDate.Text = taskTime.Text = percent.Text = string.Empty;
+            addTask(task);
+
+        }
+        public int Row { get; set; }
+        public int Column { get; set; }
+
+        private void Home_Load_1(object sender, EventArgs e)
+        {
+            Users user = micron.GetRecord<Users>();
+            Row = 0;
+            Column = 0;
+            List<User_Tasks> task = micron.GetRecords<User_Tasks>($"SELECT * FROM user_tasks WHERE user_id = '{user.id}'").ToList();
+            foreach (var task_one in task)
+            {
+                addTask(task_one);
+            }
+        }
+        public void addTask(User_Tasks tasks)
+        {
+            UserTask todo = new UserTask(tasks);
+            todo.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Controls.Add(todo, Row, Column);
+            Column += 1;
+            if (Column == 2) 
+            {
+                Row += 1;
+                Column = 0;
+
+            }
+        }
+
+       
     }
 }

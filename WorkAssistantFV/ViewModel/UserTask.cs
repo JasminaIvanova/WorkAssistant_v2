@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WorkAssistantFV.ViewModel;
 
 namespace WorkAssistantFV.ViewModel
 {
@@ -16,8 +17,15 @@ namespace WorkAssistantFV.ViewModel
         public UserTask(User_Tasks tasks)
         {
             InitializeComponent();
-            bunifuLabel1.Text = $"{tasks.task_title}";
+            lblTitle.Text = $"{tasks.task_title}";
             textForTask.Text = $"{tasks.task_description}";
+            lblDate.Text = $"{tasks.task_date}";
+            lblTime.Text = $"{tasks.task_time}";
+        }
+        
+
+        public UserTask()
+        {
         }
 
         private void bunifuLabel1_Click(object sender, EventArgs e)
@@ -29,5 +37,6 @@ namespace WorkAssistantFV.ViewModel
         {
 
         }
+      
     }
 }
