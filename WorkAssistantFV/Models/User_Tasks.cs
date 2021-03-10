@@ -14,7 +14,7 @@ namespace Data.Models
         public Int32 user_id {get; set;}
         public String task_title {get; set;}
         public String task_description {get; set;}
-        public TimeSpan task_time {get; set;}
-        public Int32 percentage {get; set;}
+        public String task_time {get; set;}
+        public String task_date {get; set;}
  }
 }

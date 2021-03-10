@@ -99,40 +99,10 @@ namespace WorkAssistantFV
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
 
-            
-            User_Tasks task = micron.GetRecord<User_Tasks>($"task_title='{taskTitleBox.Text}' AND task_description = '{taskDescriptionBox.Text}' AND task_time = '{timePicker.Value.TimeOfDay}' AND percentage = '{int.Parse(perecnt.Value.ToString())}'");
-
-          //  datePicker.CustomFormat = "yyyy-MM-dd";
-            timePicker.Format = DateTimePickerFormat.Time;
-            timePicker.CustomFormat = "HH:mm:ss";
-
-            task = new User_Tasks()
-            {
-                task_title = taskTitleBox.Text,
-                task_description = taskDescriptionBox.Text,
-                //task_date = datePicker.Value.Date,
-                task_time = timePicker.Value.TimeOfDay,
-                percentage = int.Parse(perecnt.Value.ToString())
-                //Customer customer = micron.GetRecord<Customer>("SELECT * FROM CUSTOMERS WHERE Id=1");
-            };
-
-            task = micron.Save<User_Tasks>(task);
-            MessageBox.Show($"Task succesfully created! {timePicker.Value.TimeOfDay} {int.Parse(perecnt.Value.ToString())}");
-
-           // taskTitleBox.Text = taskDescriptionBox.Text = dateTimePicker1.Text = dateTimePicker2.Text = string.Empty;
-          
+           
         }
 
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void taskDescriptionBox_TextChanged(object sender, EventArgs e)
         {
 
@@ -143,7 +113,42 @@ namespace WorkAssistantFV
 
         }
 
-        private void datePicker_ValueChanged(object sender, EventArgs e)
+        private void btnAddTask_Click(object sender, EventArgs e)
+        {
+            User_Tasks task = micron.GetRecord<User_Tasks>($"task_title='{taskTitleBox.Text}' AND task_description = '{taskDescriptionBox.Text}'");
+
+            //  datePicker.CustomFormat = "yyyy-MM-dd";
+            //timePicker.Format = DateTimePickerFormat.Time;
+            //timePicker.CustomFormat = "HH:mm:ss";
+
+            Users user = micron.GetRecord<Users>();
+
+            task = new User_Tasks()
+            {
+                user_id = user.id,
+                task_title = taskTitleBox.Text,
+                task_description = taskDescriptionBox.Text,
+                task_date = taskDate.Text,
+                task_time = taskTime.Text
+                //percentage = int.Parse(perecnt.Value.ToString())
+                //Customer customer = micron.GetRecord<Customer>("SELECT * FROM CUSTOMERS WHERE Id=1");
+            };
+
+            task = micron.Save<User_Tasks>(task);
+            MessageBox.Show($"Task succesfully created!");
+
+            // taskTitleBox.Text = taskDescriptionBox.Text = dateTimePicker1.Text = dateTimePicker2.Text = string.Empty;
+
+        }
+
+      
+
+        private void taskTime_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void taskDate_TextChanged(object sender, EventArgs e)
         {
 
         }

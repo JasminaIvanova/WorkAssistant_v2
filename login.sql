@@ -23,22 +23,14 @@ CREATE TABLE user_tasks
     REFERENCES users(id),
     task_title VARCHAR(30) NOT NULL,
     task_description VARCHAR(256) NOT NULL,
-    task_time TIME NOT NULL,
-<<<<<<< HEAD
-    #task_date DATE NOT NULL, 
-    percentage INT NOT NULL
+    task_time VARCHAR(5) NOT NULL,
+    task_date VARCHAR(10) NOT NULL
+    #percentage INT NOT NULL
 );
 
 DROP TABLE user_tasks;
 
 #INSERT INTO user_tasks VALUES (1, 1, 'test task', 'try to add task', '00:00:00', '2020-03-08' ,0);
 
-DELETE FROM user_tasks WHERE id = 1;
-=======
-    task_date DATE NOT NULL, 
-    percentage INT NOT NULL
-);
+DELETE FROM user_tasks WHERE id = 4;
 
-
-INSERT INTO user_tasks VALUES (1, 1, 'test task', 'try to add task', 0,0);
->>>>>>> de050fbd73eecdd6c80caef72f53062876f158ce
