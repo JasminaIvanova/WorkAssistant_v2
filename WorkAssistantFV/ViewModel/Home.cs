@@ -19,40 +19,18 @@ namespace WorkAssistantFV
         public Home(Users user)
         {
             InitializeComponent();
-            lblName.Text = $"Hello, {user.first_name}!";
+            lblName.Text = $"{user.username}";
             bunifuFormDock1.SubscribeControlToDragEvents(bunifuGradientPanel1);
             bunifuFormDock1.SubscribeControlToDragEvents(tabPage1);
             bunifuFormDock1.SubscribeControlToDragEvents(tabPage2);
         }
-
-      
 
         private void bunifuLabel1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnTasks_Click(object sender, EventArgs e)
-        {
-            bunifuPages1.SetPage(0);
-        }
-
-        private void btnCreateTask_Click(object sender, EventArgs e)
-        {
-            bunifuPages1.SetPage(1);
-        }
-
         private void bunifuFormDock1_FormDragging(object sender, Bunifu.UI.WinForms.BunifuFormDock.FormDraggingEventArgs e)
-        {
-
-        }
-
-        private void tabPage2_Click(object sender, EventArgs e)
         {
 
         }
@@ -62,16 +40,6 @@ namespace WorkAssistantFV
 
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void bunifuCircleProgress1_ProgressChanged(object sender, Bunifu.UI.WinForms.BunifuCircleProgress.ProgressChangedEventArgs e)
-        {
-            //done tasks*100/all tasks- primerno
-           //neshto.Value   = 
-        }
 
         private void bunifuButton3_Click(object sender, EventArgs e)
         {
@@ -86,21 +54,6 @@ namespace WorkAssistantFV
         private void panel1_Paint_1(object sender, PaintEventArgs e)
         {
 
-        }
-
-        public void addItem(string text) 
-        {
-
-        }
-        private void bunifuTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bunifuImageButton1_Click(object sender, EventArgs e)
-        {
-
-           
         }
 
         
@@ -129,7 +82,7 @@ namespace WorkAssistantFV
         {
             User_Tasks task = micron.GetRecord<User_Tasks>($"task_title='{taskTitleBox.Text}' AND task_description = '{taskDescriptionBox.Text}'");
 
-            Users user = micron.GetRecord<Users>("SELECT id FROM users WHERE username=''");
+            Users user = micron.GetRecord<Users>($"SELECT id FROM users WHERE username='{lblName.Text}'");
 
             task = new User_Tasks()
             {
@@ -172,6 +125,7 @@ namespace WorkAssistantFV
 
             taskTitleBox.Text = taskDescriptionBox.Text = taskDate.Text = taskTime.Text = percent.Text = string.Empty;
             addTask(task);
+            
 
         }
         public int Row { get; set; }
@@ -179,14 +133,18 @@ namespace WorkAssistantFV
 
         private void Home_Load_1(object sender, EventArgs e)
         {
-            Users user = micron.GetRecord<Users>();
+            
+            Users user = micron.GetRecord<Users>($"SELECT id FROM users WHERE username ='{lblName.Text}'");
             Row = 0;
             Column = 0;
             List<User_Tasks> task = micron.GetRecords<User_Tasks>($"SELECT * FROM user_tasks WHERE user_id = '{user.id}'").ToList();
             foreach (var task_one in task)
             {
                 addTask(task_one);
+                
             }
+            
+
         }
         public void addTask(User_Tasks tasks)
         {
@@ -202,6 +160,30 @@ namespace WorkAssistantFV
             }
         }
 
-       
+        private void bunifuLabel1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void circle_ProgressChanged(object sender, Bunifu.UI.WinForms.BunifuCircleProgress.ProgressChangedEventArgs e)
+        {
+            
+        }
+
+        private void btnDaily_Click(object sender, EventArgs e)
+        {
+            bunifuPages1.SetPage(0);
+        }
+
+
+        private void btnOverdue_Click(object sender, EventArgs e)
+        {
+            bunifuPages1.SetPage(1);
+        }
+
+        private void btnContacts_Click(object sender, EventArgs e)
+        {
+            bunifuPages1.SetPage(2);
+        }
     }
 }

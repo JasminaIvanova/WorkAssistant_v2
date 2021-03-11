@@ -1,4 +1,5 @@
 ﻿using Data.Models;
+using Micron;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,11 +15,14 @@ namespace WorkAssistantFV.ViewModel
 {
     public partial class UserTask : UserControl
     {
+        MicronDbContext micron = new MicronDbContext();
+        int id = 0;
         public UserTask(User_Tasks tasks)
         {
             InitializeComponent();
+            id = tasks.id;
             lblTitle.Text = $"{tasks.task_title}";
-            textForTask.Text = $"{tasks.task_description}";
+            txtForTask.Text = $"{tasks.task_description}";
             lblDate.Text = $"{tasks.task_date}";
             lblTime.Text = $"{tasks.task_time}";
         }
@@ -35,8 +39,15 @@ namespace WorkAssistantFV.ViewModel
 
         private void bunifuCheckBox1_CheckedChanged(object sender, Bunifu.UI.WinForms.BunifuCheckBox.CheckedChangedEventArgs e)
         {
-
+           
         }
-      
+
+        private void bunifuPictureBox1_Click(object sender, EventArgs e)
+        {
+            User_Tasks task = micron.GetRecord<User_Tasks>($"SELECT * FROM user_tasks WHERE id = {id}");
+            micron.Delete<User_Tasks>(task);
+            lblTitle.Text = "Deleted";
+            txtForTask.Text = "Deleted";
+        }
     }
 }

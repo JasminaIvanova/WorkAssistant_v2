@@ -29,18 +29,16 @@ namespace WorkAssistantFV.ViewModel
         /// </summary>
         private void InitializeComponent()
         {
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserTask));
             this.bunifuCards1 = new Bunifu.Framework.UI.BunifuCards();
-            this.textForTask = new Bunifu.UI.WinForms.BunifuTextBox();
-            this.lblTitle = new Bunifu.UI.WinForms.BunifuLabel();
-            this.bunifuCheckBox1 = new Bunifu.UI.WinForms.BunifuCheckBox();
-            this.lblDate = new Bunifu.UI.WinForms.BunifuLabel();
             this.lblTime = new Bunifu.UI.WinForms.BunifuLabel();
+            this.lblDate = new Bunifu.UI.WinForms.BunifuLabel();
+            this.bunifuCheckBox1 = new Bunifu.UI.WinForms.BunifuCheckBox();
+            this.lblTitle = new Bunifu.UI.WinForms.BunifuLabel();
+            this.txtForTask = new System.Windows.Forms.RichTextBox();
+            this.bunifuPictureBox1 = new Bunifu.UI.WinForms.BunifuPictureBox();
             this.bunifuCards1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuCards1
@@ -50,111 +48,52 @@ namespace WorkAssistantFV.ViewModel
             this.bunifuCards1.BorderRadius = 15;
             this.bunifuCards1.BottomSahddow = true;
             this.bunifuCards1.color = System.Drawing.Color.MediumSeaGreen;
+            this.bunifuCards1.Controls.Add(this.bunifuPictureBox1);
+            this.bunifuCards1.Controls.Add(this.txtForTask);
             this.bunifuCards1.Controls.Add(this.lblTime);
             this.bunifuCards1.Controls.Add(this.lblDate);
             this.bunifuCards1.Controls.Add(this.bunifuCheckBox1);
-            this.bunifuCards1.Controls.Add(this.textForTask);
             this.bunifuCards1.Controls.Add(this.lblTitle);
             this.bunifuCards1.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuCards1.LeftSahddow = false;
-            this.bunifuCards1.Location = new System.Drawing.Point(33, 19);
+            this.bunifuCards1.Location = new System.Drawing.Point(28, 3);
             this.bunifuCards1.Name = "bunifuCards1";
             this.bunifuCards1.RightSahddow = true;
             this.bunifuCards1.ShadowDepth = 20;
-            this.bunifuCards1.Size = new System.Drawing.Size(179, 241);
+            this.bunifuCards1.Size = new System.Drawing.Size(220, 221);
             this.bunifuCards1.TabIndex = 0;
             // 
-            // textForTask
+            // lblTime
             // 
-            this.textForTask.AcceptsReturn = false;
-            this.textForTask.AcceptsTab = false;
-            this.textForTask.AnimationSpeed = 200;
-            this.textForTask.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.textForTask.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.textForTask.BackColor = System.Drawing.Color.Transparent;
-            this.textForTask.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("textForTask.BackgroundImage")));
-            this.textForTask.BorderColorActive = System.Drawing.Color.DodgerBlue;
-            this.textForTask.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.textForTask.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.textForTask.BorderColorIdle = System.Drawing.Color.Silver;
-            this.textForTask.BorderRadius = 1;
-            this.textForTask.BorderThickness = 1;
-            this.textForTask.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.textForTask.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textForTask.DefaultFont = new System.Drawing.Font("Segoe UI", 9.25F);
-            this.textForTask.DefaultText = "{task_description}";
-            this.textForTask.FillColor = System.Drawing.Color.White;
-            this.textForTask.HideSelection = true;
-            this.textForTask.IconLeft = null;
-            this.textForTask.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
-            this.textForTask.IconPadding = 10;
-            this.textForTask.IconRight = null;
-            this.textForTask.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
-            this.textForTask.Lines = new string[] {
-        "{task_description}"};
-            this.textForTask.Location = new System.Drawing.Point(12, 40);
-            this.textForTask.MaxLength = 32767;
-            this.textForTask.MinimumSize = new System.Drawing.Size(1, 1);
-            this.textForTask.Modified = false;
-            this.textForTask.Multiline = false;
-            this.textForTask.Name = "textForTask";
-            stateProperties1.BorderColor = System.Drawing.Color.DodgerBlue;
-            stateProperties1.FillColor = System.Drawing.Color.Empty;
-            stateProperties1.ForeColor = System.Drawing.Color.Empty;
-            stateProperties1.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.textForTask.OnActiveState = stateProperties1;
-            stateProperties2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            stateProperties2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            stateProperties2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            stateProperties2.PlaceholderForeColor = System.Drawing.Color.DarkGray;
-            this.textForTask.OnDisabledState = stateProperties2;
-            stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            stateProperties3.FillColor = System.Drawing.Color.Empty;
-            stateProperties3.ForeColor = System.Drawing.Color.Empty;
-            stateProperties3.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.textForTask.OnHoverState = stateProperties3;
-            stateProperties4.BorderColor = System.Drawing.Color.Silver;
-            stateProperties4.FillColor = System.Drawing.Color.White;
-            stateProperties4.ForeColor = System.Drawing.Color.Empty;
-            stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.textForTask.OnIdleState = stateProperties4;
-            this.textForTask.Padding = new System.Windows.Forms.Padding(3);
-            this.textForTask.PasswordChar = '\0';
-            this.textForTask.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.textForTask.PlaceholderText = "Enter text";
-            this.textForTask.ReadOnly = false;
-            this.textForTask.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.textForTask.SelectedText = "";
-            this.textForTask.SelectionLength = 0;
-            this.textForTask.SelectionStart = 18;
-            this.textForTask.ShortcutsEnabled = true;
-            this.textForTask.Size = new System.Drawing.Size(155, 128);
-            this.textForTask.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
-            this.textForTask.TabIndex = 2;
-            this.textForTask.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.textForTask.TextMarginBottom = 0;
-            this.textForTask.TextMarginLeft = 3;
-            this.textForTask.TextMarginTop = 0;
-            this.textForTask.TextPlaceholder = "Enter text";
-            this.textForTask.UseSystemPasswordChar = false;
-            this.textForTask.WordWrap = true;
+            this.lblTime.AllowParentOverrides = false;
+            this.lblTime.AutoEllipsis = false;
+            this.lblTime.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lblTime.CursorType = System.Windows.Forms.Cursors.Default;
+            this.lblTime.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblTime.Location = new System.Drawing.Point(91, 185);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblTime.Size = new System.Drawing.Size(81, 23);
+            this.lblTime.TabIndex = 5;
+            this.lblTime.Text = "{task_time}";
+            this.lblTime.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lblTime.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
-            // lblTitle
+            // lblDate
             // 
-            this.lblTitle.AllowParentOverrides = false;
-            this.lblTitle.AutoEllipsis = false;
-            this.lblTitle.Cursor = System.Windows.Forms.Cursors.Default;
-            this.lblTitle.CursorType = System.Windows.Forms.Cursors.Default;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblTitle.Location = new System.Drawing.Point(56, 14);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblTitle.Size = new System.Drawing.Size(68, 20);
-            this.lblTitle.TabIndex = 1;
-            this.lblTitle.Text = "{task_title}";
-            this.lblTitle.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.lblTitle.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            this.lblTitle.Click += new System.EventHandler(this.bunifuLabel1_Click);
+            this.lblDate.AllowParentOverrides = false;
+            this.lblDate.AutoEllipsis = false;
+            this.lblDate.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lblDate.CursorType = System.Windows.Forms.Cursors.Default;
+            this.lblDate.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblDate.Location = new System.Drawing.Point(91, 159);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblDate.Size = new System.Drawing.Size(81, 23);
+            this.lblDate.TabIndex = 4;
+            this.lblDate.Text = "{task_date}";
+            this.lblDate.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lblDate.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
             // bunifuCheckBox1
             // 
@@ -170,17 +109,17 @@ namespace WorkAssistantFV.ViewModel
             this.bunifuCheckBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.bunifuCheckBox1.BindingControlPosition = Bunifu.UI.WinForms.BunifuCheckBox.BindingControlPositions.Right;
             this.bunifuCheckBox1.BorderRadius = 12;
-            this.bunifuCheckBox1.Checked = true;
-            this.bunifuCheckBox1.CheckState = Bunifu.UI.WinForms.BunifuCheckBox.CheckStates.Checked;
+            this.bunifuCheckBox1.Checked = false;
+            this.bunifuCheckBox1.CheckState = Bunifu.UI.WinForms.BunifuCheckBox.CheckStates.Unchecked;
             this.bunifuCheckBox1.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuCheckBox1.CustomCheckmarkImage = null;
-            this.bunifuCheckBox1.Location = new System.Drawing.Point(12, 188);
+            this.bunifuCheckBox1.Location = new System.Drawing.Point(22, 168);
             this.bunifuCheckBox1.MinimumSize = new System.Drawing.Size(17, 17);
             this.bunifuCheckBox1.Name = "bunifuCheckBox1";
-            this.bunifuCheckBox1.OnCheck.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.bunifuCheckBox1.OnCheck.BorderColor = System.Drawing.Color.MediumSeaGreen;
             this.bunifuCheckBox1.OnCheck.BorderRadius = 12;
             this.bunifuCheckBox1.OnCheck.BorderThickness = 2;
-            this.bunifuCheckBox1.OnCheck.CheckBoxColor = System.Drawing.Color.DodgerBlue;
+            this.bunifuCheckBox1.OnCheck.CheckBoxColor = System.Drawing.Color.MediumSeaGreen;
             this.bunifuCheckBox1.OnCheck.CheckmarkColor = System.Drawing.Color.White;
             this.bunifuCheckBox1.OnCheck.CheckmarkThickness = 2;
             this.bunifuCheckBox1.OnDisable.BorderColor = System.Drawing.Color.LightGray;
@@ -189,10 +128,10 @@ namespace WorkAssistantFV.ViewModel
             this.bunifuCheckBox1.OnDisable.CheckBoxColor = System.Drawing.Color.Transparent;
             this.bunifuCheckBox1.OnDisable.CheckmarkColor = System.Drawing.Color.LightGray;
             this.bunifuCheckBox1.OnDisable.CheckmarkThickness = 2;
-            this.bunifuCheckBox1.OnHoverChecked.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.bunifuCheckBox1.OnHoverChecked.BorderColor = System.Drawing.Color.MediumSeaGreen;
             this.bunifuCheckBox1.OnHoverChecked.BorderRadius = 12;
             this.bunifuCheckBox1.OnHoverChecked.BorderThickness = 2;
-            this.bunifuCheckBox1.OnHoverChecked.CheckBoxColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.bunifuCheckBox1.OnHoverChecked.CheckBoxColor = System.Drawing.Color.MediumSeaGreen;
             this.bunifuCheckBox1.OnHoverChecked.CheckmarkColor = System.Drawing.Color.White;
             this.bunifuCheckBox1.OnHoverChecked.CheckmarkThickness = 2;
             this.bunifuCheckBox1.OnHoverUnchecked.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
@@ -209,35 +148,50 @@ namespace WorkAssistantFV.ViewModel
             this.bunifuCheckBox1.ThreeState = false;
             this.bunifuCheckBox1.ToolTipText = null;
             // 
-            // lblDate
+            // lblTitle
             // 
-            this.lblDate.AllowParentOverrides = false;
-            this.lblDate.AutoEllipsis = false;
-            this.lblDate.CursorType = System.Windows.Forms.Cursors.Default;
-            this.lblDate.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblDate.Location = new System.Drawing.Point(70, 183);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblDate.Size = new System.Drawing.Size(72, 20);
-            this.lblDate.TabIndex = 4;
-            this.lblDate.Text = "{task_date}";
-            this.lblDate.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.lblDate.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            this.lblTitle.AllowParentOverrides = false;
+            this.lblTitle.AutoEllipsis = false;
+            this.lblTitle.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lblTitle.CursorType = System.Windows.Forms.Cursors.Default;
+            this.lblTitle.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.lblTitle.Location = new System.Drawing.Point(67, 19);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblTitle.Size = new System.Drawing.Size(96, 23);
+            this.lblTitle.TabIndex = 1;
+            this.lblTitle.Text = "{task_title}";
+            this.lblTitle.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lblTitle.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            this.lblTitle.Click += new System.EventHandler(this.bunifuLabel1_Click);
             // 
-            // lblTime
+            // txtForTask
             // 
-            this.lblTime.AllowParentOverrides = false;
-            this.lblTime.AutoEllipsis = false;
-            this.lblTime.CursorType = System.Windows.Forms.Cursors.Default;
-            this.lblTime.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblTime.Location = new System.Drawing.Point(70, 209);
-            this.lblTime.Name = "lblTime";
-            this.lblTime.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblTime.Size = new System.Drawing.Size(72, 20);
-            this.lblTime.TabIndex = 5;
-            this.lblTime.Text = "{task_time}";
-            this.lblTime.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.lblTime.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            this.txtForTask.BackColor = System.Drawing.Color.White;
+            this.txtForTask.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.txtForTask.Location = new System.Drawing.Point(22, 58);
+            this.txtForTask.Name = "txtForTask";
+            this.txtForTask.ReadOnly = true;
+            this.txtForTask.Size = new System.Drawing.Size(180, 95);
+            this.txtForTask.TabIndex = 6;
+            this.txtForTask.Text = "{task_description}";
+            // 
+            // bunifuPictureBox1
+            // 
+            this.bunifuPictureBox1.AllowFocused = false;
+            this.bunifuPictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.bunifuPictureBox1.AutoSizeHeight = true;
+            this.bunifuPictureBox1.BorderRadius = 13;
+            this.bunifuPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("bunifuPictureBox1.Image")));
+            this.bunifuPictureBox1.IsCircle = true;
+            this.bunifuPictureBox1.Location = new System.Drawing.Point(6, 12);
+            this.bunifuPictureBox1.Name = "bunifuPictureBox1";
+            this.bunifuPictureBox1.Size = new System.Drawing.Size(27, 27);
+            this.bunifuPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.bunifuPictureBox1.TabIndex = 7;
+            this.bunifuPictureBox1.TabStop = false;
+            this.bunifuPictureBox1.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Circle;
+            this.bunifuPictureBox1.Click += new System.EventHandler(this.bunifuPictureBox1_Click);
             // 
             // UserTask
             // 
@@ -246,9 +200,10 @@ namespace WorkAssistantFV.ViewModel
             this.BackColor = System.Drawing.SystemColors.Info;
             this.Controls.Add(this.bunifuCards1);
             this.Name = "UserTask";
-            this.Size = new System.Drawing.Size(243, 280);
+            this.Size = new System.Drawing.Size(276, 227);
             this.bunifuCards1.ResumeLayout(false);
             this.bunifuCards1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -258,8 +213,9 @@ namespace WorkAssistantFV.ViewModel
         private Bunifu.Framework.UI.BunifuCards bunifuCards1;
         private Bunifu.UI.WinForms.BunifuCheckBox bunifuCheckBox1;
         private Bunifu.UI.WinForms.BunifuLabel lblTitle;
-        private Bunifu.UI.WinForms.BunifuTextBox textForTask;
         private Bunifu.UI.WinForms.BunifuLabel lblTime;
         private Bunifu.UI.WinForms.BunifuLabel lblDate;
+        private System.Windows.Forms.RichTextBox txtForTask;
+        private Bunifu.UI.WinForms.BunifuPictureBox bunifuPictureBox1;
     }
 }
