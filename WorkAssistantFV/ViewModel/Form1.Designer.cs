@@ -388,10 +388,10 @@ namespace WorkAssistantFV
             this.bunifuPages1.Location = new System.Drawing.Point(287, 22);
             this.bunifuPages1.Multiline = true;
             this.bunifuPages1.Name = "bunifuPages1";
-            this.bunifuPages1.Page = this.tabPage2;
-            this.bunifuPages1.PageIndex = 1;
-            this.bunifuPages1.PageName = "tabPage2";
-            this.bunifuPages1.PageTitle = "SignUp";
+            this.bunifuPages1.Page = this.tabPage1;
+            this.bunifuPages1.PageIndex = 0;
+            this.bunifuPages1.PageName = "tabPage1";
+            this.bunifuPages1.PageTitle = "SignIn";
             this.bunifuPages1.SelectedIndex = 0;
             this.bunifuPages1.Size = new System.Drawing.Size(692, 548);
             this.bunifuPages1.TabIndex = 3;
@@ -454,7 +454,7 @@ namespace WorkAssistantFV
             borderEdges1.TopRight = true;
             this.btnSignIn.CustomizableEdges = borderEdges1;
             this.btnSignIn.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnSignIn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.btnSignIn.DisabledBorderColor = System.Drawing.Color.ForestGreen;
             this.btnSignIn.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.btnSignIn.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
             this.btnSignIn.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
@@ -478,7 +478,7 @@ namespace WorkAssistantFV
             this.btnSignIn.IndicateFocus = false;
             this.btnSignIn.Location = new System.Drawing.Point(254, 442);
             this.btnSignIn.Name = "btnSignIn";
-            this.btnSignIn.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.btnSignIn.OnDisabledState.BorderColor = System.Drawing.Color.ForestGreen;
             this.btnSignIn.OnDisabledState.BorderRadius = 30;
             this.btnSignIn.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.btnSignIn.OnDisabledState.BorderThickness = 1;

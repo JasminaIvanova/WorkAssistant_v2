@@ -154,8 +154,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-      <Compile Include="Models\Company.cs" />
-      <Compile Include="Models\Company_Users.cs" />
       <Compile Include="Models\Users.cs" />
       <Compile Include="Models\User_Tasks.cs" />
       <Compile Include="Models\__Relationships.cs" />

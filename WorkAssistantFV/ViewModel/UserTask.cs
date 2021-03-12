@@ -49,5 +49,10 @@ namespace WorkAssistantFV.ViewModel
             lblTitle.Text = "Deleted";
             txtForTask.Text = "Deleted";
         }
+
+        private void UserTask_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
