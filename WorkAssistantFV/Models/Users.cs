@@ -15,6 +15,8 @@ namespace Data.Models
         public String username {get; set;}
         public String email {get; set;}
         public String password {get; set;}
+        [Foreign(typeof(Company))]
+        public Int32 company_id {get; set;}
         public String company_name {get; set;}
  }
 }
