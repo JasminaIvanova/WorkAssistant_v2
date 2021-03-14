@@ -15,6 +15,7 @@ namespace Data.Models
         public String username {get; set;}
         public String email {get; set;}
         public String password {get; set;}
+        public String phone_number_contact {get; set;}
         public String company_name {get; set;}
  }
 }

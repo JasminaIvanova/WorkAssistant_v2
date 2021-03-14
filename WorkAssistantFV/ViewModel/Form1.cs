@@ -58,7 +58,7 @@ namespace WorkAssistantFV
         private void btnCreate_Click(object sender, EventArgs e)
         {
             Users user = micron.GetRecord<Users>($"username='{txtUsername.Text}' AND password = MD5('{txtPassword.Text}')");
-            
+            Company company = micron.GetRecord<Company>($"name_company='{txtCompany.Text}'");
             user = new Users()
             {
                 first_name = txtFirstName.Text,
@@ -66,6 +66,7 @@ namespace WorkAssistantFV
                 email = txtEmail.Text,
                 username = txtUsername.Text,
                 password = Program.CalculateMD5(txtPassword.Text),
+                phone_number_contact = txtPhone.Text,
                 company_name = txtCompany.Text
             };
 
@@ -75,32 +76,32 @@ namespace WorkAssistantFV
                 return;
             }
 
-            if (txtFirstName.Text.Length == 0) 
+            if (String.IsNullOrEmpty(txtFirstName.Text)) 
             {
                 MessageBox.Show("Please insert First name!");
                 return;
             }
-            if (txtLastName.Text.Length == 0) 
+            if (String.IsNullOrEmpty(txtLastName.Text)) 
             {
                 MessageBox.Show("Please insert last name!");
                 return;
             }
-            if (txtPassword.Text.Length == 0)
+            if (String.IsNullOrEmpty(txtPassword.Text))
             {
                 MessageBox.Show("Please insert password!");
                 return;
             }
-            if (txtPasswordConfirm.Text.Length == 0)
+            if (String.IsNullOrEmpty(txtPasswordConfirm.Text))
             {
                 MessageBox.Show("Please confirm your password!");
                 return;
             }
-            if (txtEmail.Text.Length == 0)
+            if (String.IsNullOrEmpty(txtEmail.Text))
             {
                 MessageBox.Show("Please enter your email address!");
                 return;
             }
-            if (txtUsername.Text.Length == 0)
+            if (String.IsNullOrEmpty(txtUsername.Text))
             {
                 MessageBox.Show("Please insert username!");
                 return;
@@ -130,7 +131,7 @@ namespace WorkAssistantFV
             user = micron.Save(user);
             MessageBox.Show("Account succesfully created!");
 
-            txtFirstName.Text = txtLastName.Text = txtEmail.Text = txtUsername.Text = txtPassword.Text = txtPasswordConfirm.Text = txtCompany.Text = string.Empty;
+            txtFirstName.Text = txtLastName.Text =txtPhone.Text= txtEmail.Text = txtUsername.Text = txtPassword.Text = txtPasswordConfirm.Text = txtCompany.Text = string.Empty;
             bunifuPages1.SetPage(0);
         }
 
@@ -162,6 +163,21 @@ namespace WorkAssistantFV
         private void txtFirstName_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtCompany_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuImageButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

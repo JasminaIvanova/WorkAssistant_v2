@@ -91,6 +91,7 @@ namespace WorkAssistantFV.ViewModel
             this.txtForTask.Size = new System.Drawing.Size(180, 95);
             this.txtForTask.TabIndex = 6;
             this.txtForTask.Text = "{task_description}";
+            this.txtForTask.TextChanged += new System.EventHandler(this.txtForTask_TextChanged);
             // 
             // lblTime
             // 
@@ -165,7 +166,7 @@ namespace WorkAssistantFV.ViewModel
             this.bunifuCheckBox1.OnHoverChecked.CheckBoxColor = System.Drawing.Color.MediumSeaGreen;
             this.bunifuCheckBox1.OnHoverChecked.CheckmarkColor = System.Drawing.Color.White;
             this.bunifuCheckBox1.OnHoverChecked.CheckmarkThickness = 2;
-            this.bunifuCheckBox1.OnHoverUnchecked.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.bunifuCheckBox1.OnHoverUnchecked.BorderColor = System.Drawing.Color.ForestGreen;
             this.bunifuCheckBox1.OnHoverUnchecked.BorderRadius = 12;
             this.bunifuCheckBox1.OnHoverUnchecked.BorderThickness = 1;
             this.bunifuCheckBox1.OnHoverUnchecked.CheckBoxColor = System.Drawing.Color.Transparent;

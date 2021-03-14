@@ -54,5 +54,10 @@ namespace WorkAssistantFV.ViewModel
         {
 
         }
+
+        private void txtForTask_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

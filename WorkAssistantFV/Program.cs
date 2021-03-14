@@ -22,7 +22,7 @@ namespace WorkAssistantFV
                 DatabaseName = "WorkAssistant",
                 Host = "127.0.0.1",
                 User = "root",
-                Password = "0000",
+                Password = "Kr1st!1928",
                 Port = "3306"
             };
             MicronDbContext db = new MicronDbContext("config");

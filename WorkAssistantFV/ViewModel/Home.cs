@@ -18,9 +18,11 @@ namespace WorkAssistantFV
 
         MicronDbContext micron = new MicronDbContext();
         int valueForCircle = 0;
+        string company;
         public Home(Users user)
         {
             InitializeComponent();
+            company = user.company_name;
             lblName.Text = $"{user.username}";
             bunifuFormDock1.SubscribeControlToDragEvents(bunifuGradientPanel1);
             bunifuFormDock1.SubscribeControlToDragEvents(tabPage1);
@@ -157,6 +159,13 @@ namespace WorkAssistantFV
                 addTask(task_one, tableLayoutPanel2);
 
             }
+            List<Users> user_contacts = micron.GetRecords<Users>($"SELECT first_name, last_name, email, phone_number_contact FROM users WHERE company_name ='{company}'").ToList();
+            Row = 0;
+            Column = 0;
+            foreach (var contact_one in user_contacts) 
+            {
+                addContact(contact_one);
+            }
         }
         public void addTask(User_Tasks tasks, TableLayoutPanel panel)
         {
@@ -170,6 +179,20 @@ namespace WorkAssistantFV
                 Column = 0;
 
             }
+        }
+        public void addContact(Users user) 
+        {
+            UserContacts contact = new UserContacts(user);
+            contact.Dock = DockStyle.Fill;
+            tableLayoutContact.Controls.Add(contact, Column, Row);
+            Column += 1;
+            if (Column == 3)
+            {
+                Row += 1;
+                Column = 0;
+
+            }
+
         }
 
         private void bunifuLabel1_Click_1(object sender, EventArgs e)
@@ -190,6 +213,8 @@ namespace WorkAssistantFV
         private void btnOverdue_Click(object sender, EventArgs e)
         {
             bunifuPages1.SetPage(1);
+            
+            
         }
 
         private void btnContacts_Click(object sender, EventArgs e)
@@ -227,6 +252,11 @@ namespace WorkAssistantFV
                 circle.Value = valueForCircle / tasksForUser.Count;
             }
             circle.PerformStep();
+        }
+
+        private void bunifuButton1_Click(object sender, EventArgs e)
+        {
+                
         }
     }
 }
