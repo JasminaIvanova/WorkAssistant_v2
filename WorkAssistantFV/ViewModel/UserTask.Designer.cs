@@ -188,7 +188,7 @@ namespace WorkAssistantFV.ViewModel
             this.lblTitle.CursorType = System.Windows.Forms.Cursors.Default;
             this.lblTitle.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.lblTitle.ForeColor = System.Drawing.Color.Black;
-            this.lblTitle.Location = new System.Drawing.Point(67, 19);
+            this.lblTitle.Location = new System.Drawing.Point(50, 16);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lblTitle.Size = new System.Drawing.Size(96, 23);

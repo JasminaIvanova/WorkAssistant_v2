@@ -2,12 +2,7 @@
 using Micron;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WorkAssistantFV.ViewModel;
 
@@ -19,6 +14,8 @@ namespace WorkAssistantFV
         MicronDbContext micron = new MicronDbContext();
         int valueForCircle = 0;
         string company;
+        string dateNow = DateTime.Now.ToString("yyyy/MM/dd");
+        string timeNow = DateTime.Now.ToString("HH:mm");
         public Home(Users user)
         {
             InitializeComponent();
@@ -28,6 +25,9 @@ namespace WorkAssistantFV
             bunifuFormDock1.SubscribeControlToDragEvents(tabPage1);
             bunifuFormDock1.SubscribeControlToDragEvents(tabPage2);
         }
+
+        public int Row { get; set; }
+        public int Column { get; set; }
 
         private void bunifuLabel1_Click(object sender, EventArgs e)
         {
@@ -60,7 +60,7 @@ namespace WorkAssistantFV
 
         }
 
-        
+
         private void taskDescriptionBox_TextChanged(object sender, EventArgs e)
         {
 
@@ -131,13 +131,14 @@ namespace WorkAssistantFV
             MessageBox.Show($"Task succesfully created!");
 
             taskTitleBox.Text = taskDescriptionBox.Text = taskDate.Text = taskTime.Text = percent.Text = string.Empty;
-            addTask(task,tableLayoutPanel1);
-            
+            Row = 0;
+            Column = 0;
+            addTask(task, tableLayoutPanel1);
+
 
 
         }
-        public int Row { get; set; }
-        public int Column { get; set; }
+
 
         private void Home_Load_1(object sender, EventArgs e)
         {
@@ -151,9 +152,8 @@ namespace WorkAssistantFV
             }
             Row = 0;
             Column = 0;
-            string dateNow = DateTime.Now.ToString("yyyy/MM/dd");
-            string timeNow = DateTime.Now.ToString("HH:mm");
-            task = micron.GetRecords<User_Tasks>($"SELECT * FROM user_tasks WHERE user_id = '{user.id}' AND task_date <= '{dateNow}' AND task_time <= '{timeNow}'").ToList();
+
+            task = micron.GetRecords<User_Tasks>($"SELECT * FROM user_tasks WHERE user_id = '{user.id}' AND (task_date < '{dateNow}' OR (task_time <= '{timeNow}' AND task_date = '{timeNow}'))").ToList();
             foreach (var task_one in task)
             {
                 addTask(task_one, tableLayoutPanel2);
@@ -162,10 +162,12 @@ namespace WorkAssistantFV
             List<Users> user_contacts = micron.GetRecords<Users>($"SELECT first_name, last_name, email, phone_number_contact FROM users WHERE company_name ='{company}'").ToList();
             Row = 0;
             Column = 0;
-            foreach (var contact_one in user_contacts) 
+            foreach (var contact_one in user_contacts)
             {
                 addContact(contact_one);
             }
+
+
         }
         public void addTask(User_Tasks tasks, TableLayoutPanel panel)
         {
@@ -173,14 +175,14 @@ namespace WorkAssistantFV
             todo.Dock = DockStyle.Fill;
             panel.Controls.Add(todo, Column, Row);
             Column += 1;
-            if (Column == 2) 
+            if (Column == 2)
             {
                 Row += 1;
                 Column = 0;
 
             }
         }
-        public void addContact(Users user) 
+        public void addContact(Users user)
         {
             UserContacts contact = new UserContacts(user);
             contact.Dock = DockStyle.Fill;
@@ -202,7 +204,7 @@ namespace WorkAssistantFV
 
         private void circle_ProgressChanged(object sender, Bunifu.UI.WinForms.BunifuCircleProgress.ProgressChangedEventArgs e)
         {
-            
+
         }
 
         private void btnDaily_Click(object sender, EventArgs e)
@@ -213,8 +215,6 @@ namespace WorkAssistantFV
         private void btnOverdue_Click(object sender, EventArgs e)
         {
             bunifuPages1.SetPage(1);
-            
-            
         }
 
         private void btnContacts_Click(object sender, EventArgs e)
@@ -233,10 +233,10 @@ namespace WorkAssistantFV
 
         private void tabPage2_Click(object sender, EventArgs e)
         {
-            
+
         }
 
-        public void circleValue(Users user) 
+        public void circleValue(Users user)
         {
             List<User_Tasks> tasksForUser = micron.GetRecords<User_Tasks>($"SELECT * FROM user_tasks WHERE user_id = '{user.id}'").ToList();
             foreach (var task_one in tasksForUser)
@@ -256,7 +256,56 @@ namespace WorkAssistantFV
 
         private void bunifuButton1_Click(object sender, EventArgs e)
         {
-                
+
+        }
+
+        private void btnSearchContact_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(boxSearch.Text))
+            {
+                ClearTable(tableLayoutContact);
+                Row = 0;
+                Column = 0;
+                List<Users> user_contacts = micron.GetRecords<Users>($"SELECT first_name, last_name, email, phone_number_contact FROM users WHERE company_name ='{company}'").ToList();
+                foreach (var contact_one in user_contacts)
+                {
+                    addContact(contact_one);
+                }
+
+            }
+            else
+            {
+                try
+                {
+                    Users searchedContact = micron.GetRecord<Users>($"SELECT first_name, last_name, email, phone_number_contact FROM users WHERE company_name ='{company}' AND first_name = '{boxSearch.Text}' OR last_name = '{boxSearch.Text}'");
+                    ClearTable(tableLayoutContact);
+                    Row = 0;
+                    Column = 0;
+                    addContact(searchedContact);
+                }
+                catch
+                {
+                    MessageBox.Show("This contact does not exists");
+                }
+            }
+        }
+
+        public void ClearTable(TableLayoutPanel panel)
+        {
+            while (panel.Controls.Count > 0)
+            {
+                panel.Controls[0].Dispose();
+            }
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnInfo_Click(object sender, EventArgs e)
+        {
+            bunifuPages1.SetPage(4);
         }
     }
 }

@@ -376,3 +376,4 @@ D:\WorkAssistant_v2\WorkAssistantFV\bin\Debug\Bunifu.Dataviz.WinForms.xml
 D:\WorkAssistant_v2\WorkAssistantFV\obj\Debug\WorkAssistantFV.Home.resources
 D:\WorkAssistant_v2\WorkAssistantFV\obj\Debug\WorkAssistantFV.ViewModel.UserTask.resources
 D:\WorkAssistant_v2\WorkAssistantFV\obj\Debug\WorkAssistantFV.ViewModel.UserContacts.resources
+C:\Users\Jessy\source\repos\WorkAssistant_v2\WorkAssistantFV\obj\Debug\WorkAssistantFV.ViewModel.UserContacts.resources
