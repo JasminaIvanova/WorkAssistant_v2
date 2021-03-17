@@ -5,7 +5,7 @@ CREATE TABLE company
 (
 	id INT PRIMARY KEY AUTO_INCREMENT,
     name_company VARCHAR(50) NOT NULL,
-    date_created DATE,
+    date_created YEAR,
     adress_company VARCHAR(100) NOT NULL,
     owner_company VARCHAR(50) NOT NULL,
     CEO_company VARCHAR(50) NOT NULL
@@ -31,6 +31,7 @@ SELECT * FROM user_tasks;
 DROP DATABASE WorkAssistant;
 DROP TABLE users;
 DROP TABLE user_tasks;
+DROP TABLE company;
 
 
 
@@ -46,7 +47,6 @@ CREATE TABLE users
     company_name VARCHAR(50) NOT NULL
     
 );
-
 CREATE TABLE user_tasks
 (
 	id INT PRIMARY KEY AUTO_INCREMENT,
@@ -72,5 +72,15 @@ CREATE TABLE company_users
 );
 
 DROP TABLE users;
-
+INSERT INTO company (name_company,date_created, adress_company,owner_company, CEO_company ) VALUES
+    ('Fibnak', '1993','Sofia, Bulgaria','Tseko Todorov Minev, Ivaylo Dimitrov Mutafchiev','Nedelcho Nedelchev'),
+    ('DSK', '1951','Sofia, Bulgaria','OTP Bank','Violina Marinova'),
+    ('PostBank', '1991 ','Sofia, Bulgaria','Eurobank Ergasias','Petya Dimitrova'),
+	('A1', '1994','Sofia, Bulgaria','America Movil','Alexandar Dimitrov'),
+    ('Telenor', '2001','Fornebu, Norge','Jason King','Sigve Brekke'), 
+    ('Vivacom', '1992','Sofia, Bulgaria','United Group','Atanas Dobrev'),
+    ('VMware', '1998','Palo Alto, California, USA','Dell Technologies','Zane C. Rowe'),
+    ('SAP', '1972','Waldorf, Germany','Hasso Plattner','Kristen Klein'),
+    ('TUES', '1988','Sofia, Bulgaria','Stela Stefanova','Stela Stefanova'),
+    ('SoftUni', '2013','Sofia, Bulgaria','Svetlin Nakov, Hristo Tenchev','Magdalena Dimitrova');
 

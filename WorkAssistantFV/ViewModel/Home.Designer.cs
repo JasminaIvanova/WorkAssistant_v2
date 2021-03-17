@@ -101,6 +101,15 @@ namespace WorkAssistantFV
             this.bunifuLabel4 = new Bunifu.UI.WinForms.BunifuLabel();
             this.tableLayoutContact = new System.Windows.Forms.TableLayoutPanel();
             this.AboutCompany = new System.Windows.Forms.TabPage();
+            this.lblCEO = new Bunifu.UI.WinForms.BunifuLabel();
+            this.lblOwner = new Bunifu.UI.WinForms.BunifuLabel();
+            this.lblAdress = new Bunifu.UI.WinForms.BunifuLabel();
+            this.lblDateCreate = new Bunifu.UI.WinForms.BunifuLabel();
+            this.lblCompanyName = new Bunifu.UI.WinForms.BunifuLabel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.bunifuGradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.bunifuPages1.SuspendLayout();
@@ -108,6 +117,11 @@ namespace WorkAssistantFV
             this.panel1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            this.AboutCompany.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuGradientPanel1
@@ -952,10 +966,9 @@ namespace WorkAssistantFV
             this.circle.SuperScriptMargin = new System.Windows.Forms.Padding(5, 50, 0, 0);
             this.circle.SuperScriptText = "%";
             this.circle.TabIndex = 16;
-            this.circle.Text = "30";
+            this.circle.Text = "0";
             this.circle.TextMargin = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.circle.Value = 30;
-            this.circle.ValueByTransition = 30;
+            this.circle.ValueByTransition = 0;
             this.circle.ValueMargin = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.circle.ProgressChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuCircleProgress.ProgressChangedEventArgs>(this.circle_ProgressChanged);
             // 
@@ -1663,12 +1676,138 @@ namespace WorkAssistantFV
             // AboutCompany
             // 
             this.AboutCompany.BackColor = System.Drawing.SystemColors.Info;
+            this.AboutCompany.Controls.Add(this.pictureBox5);
+            this.AboutCompany.Controls.Add(this.pictureBox4);
+            this.AboutCompany.Controls.Add(this.pictureBox3);
+            this.AboutCompany.Controls.Add(this.pictureBox2);
+            this.AboutCompany.Controls.Add(this.lblCEO);
+            this.AboutCompany.Controls.Add(this.lblOwner);
+            this.AboutCompany.Controls.Add(this.lblAdress);
+            this.AboutCompany.Controls.Add(this.lblDateCreate);
+            this.AboutCompany.Controls.Add(this.lblCompanyName);
             this.AboutCompany.Location = new System.Drawing.Point(4, 4);
             this.AboutCompany.Name = "AboutCompany";
             this.AboutCompany.Padding = new System.Windows.Forms.Padding(3);
             this.AboutCompany.Size = new System.Drawing.Size(771, 594);
             this.AboutCompany.TabIndex = 4;
             this.AboutCompany.Text = "Info";
+            // 
+            // lblCEO
+            // 
+            this.lblCEO.AllowParentOverrides = false;
+            this.lblCEO.AutoEllipsis = false;
+            this.lblCEO.CursorType = null;
+            this.lblCEO.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.lblCEO.Location = new System.Drawing.Point(207, 435);
+            this.lblCEO.Name = "lblCEO";
+            this.lblCEO.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblCEO.Size = new System.Drawing.Size(391, 28);
+            this.lblCEO.TabIndex = 4;
+            this.lblCEO.Text = "Chief executive officer (CEO):  {CEO_company}";
+            this.lblCEO.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lblCEO.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // lblOwner
+            // 
+            this.lblOwner.AllowParentOverrides = false;
+            this.lblOwner.AutoEllipsis = false;
+            this.lblOwner.CursorType = null;
+            this.lblOwner.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.lblOwner.Location = new System.Drawing.Point(207, 369);
+            this.lblOwner.Name = "lblOwner";
+            this.lblOwner.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblOwner.Size = new System.Drawing.Size(221, 28);
+            this.lblOwner.TabIndex = 3;
+            this.lblOwner.Text = "Owner: {owner_company}";
+            this.lblOwner.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lblOwner.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // lblAdress
+            // 
+            this.lblAdress.AllowParentOverrides = false;
+            this.lblAdress.AutoEllipsis = false;
+            this.lblAdress.CursorType = null;
+            this.lblAdress.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.lblAdress.Location = new System.Drawing.Point(207, 300);
+            this.lblAdress.Name = "lblAdress";
+            this.lblAdress.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblAdress.Size = new System.Drawing.Size(315, 28);
+            this.lblAdress.TabIndex = 2;
+            this.lblAdress.Text = "Headquartered at {adress_company}";
+            this.lblAdress.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lblAdress.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // lblDateCreate
+            // 
+            this.lblDateCreate.AllowParentOverrides = false;
+            this.lblDateCreate.AutoEllipsis = false;
+            this.lblDateCreate.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lblDateCreate.CursorType = System.Windows.Forms.Cursors.Default;
+            this.lblDateCreate.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.lblDateCreate.Location = new System.Drawing.Point(207, 229);
+            this.lblDateCreate.Name = "lblDateCreate";
+            this.lblDateCreate.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblDateCreate.Size = new System.Drawing.Size(253, 28);
+            this.lblDateCreate.TabIndex = 1;
+            this.lblDateCreate.Text = "Founded: {date_created} year";
+            this.lblDateCreate.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lblDateCreate.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // lblCompanyName
+            // 
+            this.lblCompanyName.AllowParentOverrides = false;
+            this.lblCompanyName.AutoEllipsis = false;
+            this.lblCompanyName.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lblCompanyName.CursorType = System.Windows.Forms.Cursors.Default;
+            this.lblCompanyName.Font = new System.Drawing.Font("Segoe UI", 25F);
+            this.lblCompanyName.Location = new System.Drawing.Point(266, 49);
+            this.lblCompanyName.Name = "lblCompanyName";
+            this.lblCompanyName.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblCompanyName.Size = new System.Drawing.Size(316, 57);
+            this.lblCompanyName.TabIndex = 0;
+            this.lblCompanyName.Text = "{name_company}";
+            this.lblCompanyName.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lblCompanyName.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(149, 220);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(40, 46);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 5;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(145, 369);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(41, 38);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 6;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(145, 291);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(44, 46);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 7;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(145, 435);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(44, 44);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 8;
+            this.pictureBox5.TabStop = false;
             // 
             // Home
             // 
@@ -1693,6 +1832,12 @@ namespace WorkAssistantFV
             this.tabPage2.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            this.AboutCompany.ResumeLayout(false);
+            this.AboutCompany.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1737,5 +1882,14 @@ namespace WorkAssistantFV
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnInfo;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton bunifuButton1;
         private System.Windows.Forms.TabPage AboutCompany;
+        private Bunifu.UI.WinForms.BunifuLabel lblCEO;
+        private Bunifu.UI.WinForms.BunifuLabel lblOwner;
+        private Bunifu.UI.WinForms.BunifuLabel lblAdress;
+        private Bunifu.UI.WinForms.BunifuLabel lblDateCreate;
+        private Bunifu.UI.WinForms.BunifuLabel lblCompanyName;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

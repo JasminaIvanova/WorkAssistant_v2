@@ -133,6 +133,7 @@ namespace WorkAssistantFV
             taskTitleBox.Text = taskDescriptionBox.Text = taskDate.Text = taskTime.Text = percent.Text = string.Empty;
             Row = 0;
             Column = 0;
+
             addTask(task, tableLayoutPanel1);
 
 
@@ -142,7 +143,7 @@ namespace WorkAssistantFV
 
         private void Home_Load_1(object sender, EventArgs e)
         {
-            Users user = micron.GetRecord<Users>($"SELECT id FROM users WHERE username ='{lblName.Text}'");
+            Users user = micron.GetRecord<Users>($"SELECT * FROM users WHERE username ='{lblName.Text}'");
             Row = 0;
             Column = 0;
             List<User_Tasks> task = micron.GetRecords<User_Tasks>($"SELECT * FROM user_tasks WHERE user_id = '{user.id}'").ToList();
@@ -153,7 +154,7 @@ namespace WorkAssistantFV
             Row = 0;
             Column = 0;
 
-            task = micron.GetRecords<User_Tasks>($"SELECT * FROM user_tasks WHERE user_id = '{user.id}' AND (task_date < '{dateNow}' OR (task_time <= '{timeNow}' AND task_date = '{timeNow}'))").ToList();
+            task = micron.GetRecords<User_Tasks>($"SELECT * FROM user_tasks WHERE user_id = '{user.id}' AND task_date <= '{dateNow}' AND task_time <= '{timeNow}'").ToList();
             foreach (var task_one in task)
             {
                 addTask(task_one, tableLayoutPanel2);
@@ -166,7 +167,12 @@ namespace WorkAssistantFV
             {
                 addContact(contact_one);
             }
-
+            Company company_info = micron.GetRecord<Company>($"SELECT * FROM company WHERE name_company='{user.company_name}'");
+            lblCompanyName.Text = company_info.name_company;
+            lblDateCreate.Text = $"Year of foundation:  {company_info.date_created}";
+            lblAdress.Text =$" Headquartered at:  { company_info.adress_company}";
+            lblOwner.Text = $" Owner:  {company_info.owner_company}";
+            lblCEO.Text = $"Chief executive officer (CEO):  {company_info.CEO_company}";
 
         }
         public void addTask(User_Tasks tasks, TableLayoutPanel panel)
@@ -304,7 +310,7 @@ namespace WorkAssistantFV
         }
 
         private void btnInfo_Click(object sender, EventArgs e)
-        {
+        { 
             bunifuPages1.SetPage(4);
         }
     }
