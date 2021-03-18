@@ -154,7 +154,8 @@ namespace WorkAssistantFV
             Row = 0;
             Column = 0;
 
-            task = micron.GetRecords<User_Tasks>($"SELECT * FROM user_tasks WHERE user_id = '{user.id}' AND task_date <= '{dateNow}' AND task_time <= '{timeNow}'").ToList();
+            task = micron.GetRecords<User_Tasks>($"SELECT * FROM user_tasks WHERE user_id = '{user.id}' AND (task_date < '{dateNow}' OR (task_time <= '{timeNow}' AND task_date = '{dateNow}'))").ToList();
+
             foreach (var task_one in task)
             {
                 addTask(task_one, tableLayoutPanel2);
@@ -173,7 +174,11 @@ namespace WorkAssistantFV
             lblAdress.Text =$" Headquartered at:  { company_info.adress_company}";
             lblOwner.Text = $" Owner:  {company_info.owner_company}";
             lblCEO.Text = $"Chief executive officer (CEO):  {company_info.CEO_company}";
-
+            for (int i = 0; i < 100; i++)
+            {
+                OvertimeTable.Rows.Add(new object[]{ });
+            }
+            
         }
         public void addTask(User_Tasks tasks, TableLayoutPanel panel)
         {
@@ -312,6 +317,78 @@ namespace WorkAssistantFV
         private void btnInfo_Click(object sender, EventArgs e)
         { 
             bunifuPages1.SetPage(4);
+        }
+
+        public void LoadData()
+        {
+            Users user = micron.GetRecord<Users>($"SELECT id FROM users WHERE username='{lblName.Text}'");
+            List<Overtime> over = micron.GetRecords<Overtime>($"SELECT * FROM overtime WHERE user_id = '{user.id}'").ToList();
+            OvertimeTable.Rows.Clear();
+            foreach (var time in over)
+            {
+                DataGridViewRow newRow = new DataGridViewRow();
+                newRow.CreateCells(OvertimeTable);
+                newRow.Cells[3].Value = time.short_description;
+                newRow.Cells[0].Value = time.start_time;
+                newRow.Cells[1].Value = time.end_time;
+                newRow.Cells[2].Value = time.overtime_date;
+                OvertimeTable.Rows.Add(newRow);
+
+            }
+            
+            
+        }
+        private void btnAddOvertime_Click(object sender, EventArgs e)
+        {
+           Overtime time = micron.GetRecord<Overtime>();
+
+            Users user = micron.GetRecord<Users>($"SELECT id FROM users WHERE username='{lblName.Text}'");
+            if (txtStartTime.Text == "")
+            {
+                MessageBox.Show("Plese enter start time for your overtime!");
+                return;
+            }
+            if (txtEndTime.Text == "")
+            {
+                MessageBox.Show("Plese enter end time for your overtime!");
+                return;
+            }
+            if (txtOvertimeDescription.Text == "")
+            {
+                MessageBox.Show("Plese enter description for your overtime!");
+                return;
+            }
+            if (bunifuTextBox1.Text == "")
+            {
+                MessageBox.Show("Plese enter date for your overtime!");
+                return;
+            }
+
+            time = new Overtime()
+            {
+                user_id = user.id,
+                start_time = txtStartTime.Text,
+                end_time = txtEndTime.Text,
+                short_description = txtOvertimeDescription.Text,
+                overtime_date = bunifuTextBox1.Text
+            };
+            time = micron.Save<Overtime>(time);
+            
+            MessageBox.Show($"Overtime data succesfully added!");
+
+            txtStartTime.Text = txtEndTime.Text = txtOvertimeDescription.Text = bunifuTextBox1.Text = string.Empty;
+            Row = 0;
+            Column = 0;
+
+            LoadData();
+            
+
+        }
+        
+
+        private void Home_Shown(object sender, EventArgs e)
+        {
+            LoadData();
         }
     }
 }

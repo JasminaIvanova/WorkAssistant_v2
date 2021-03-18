@@ -73,7 +73,7 @@ CREATE TABLE company_users
 
 DROP TABLE users;
 INSERT INTO company (name_company,date_created, adress_company,owner_company, CEO_company ) VALUES
-    ('Fibnak', '1993','Sofia, Bulgaria','Tseko Todorov Minev, Ivaylo Dimitrov Mutafchiev','Nedelcho Nedelchev'),
+    ('Fibank', '1993','Sofia, Bulgaria','Tseko Todorov Minev, Ivaylo Dimitrov Mutafchiev','Nedelcho Nedelchev'),
     ('DSK', '1951','Sofia, Bulgaria','OTP Bank','Violina Marinova'),
     ('PostBank', '1991 ','Sofia, Bulgaria','Eurobank Ergasias','Petya Dimitrova'),
 	('A1', '1994','Sofia, Bulgaria','America Movil','Alexandar Dimitrov'),
