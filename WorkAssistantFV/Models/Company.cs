@@ -4,9 +4,7 @@ using System.Collections.Generic;
 
 namespace Data.Models
 {
-/***COMPANY MODEL***/
-  [Table("company")]
- public partial class Company : IMicron
+ public partial class Company
     {
         public Company()
         {

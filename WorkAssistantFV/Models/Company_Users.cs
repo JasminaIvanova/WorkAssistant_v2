@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Data.Models
 {
 
- public partial class Company_Users : IMicron
+ public partial class Company_Users
     {
         [Key]
         [ForeignKey("Company")]

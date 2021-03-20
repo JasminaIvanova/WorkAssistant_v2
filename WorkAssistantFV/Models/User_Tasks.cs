@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Data.Models
 {
 
- public partial class User_Tasks: IMicron
+ public partial class User_Tasks
  {
         public User_Tasks()
         {

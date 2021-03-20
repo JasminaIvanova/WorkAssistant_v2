@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Data.Models
 {
 
- public partial class Overtime : IMicron
+ public partial class Overtime
 
     {
         public Overtime()

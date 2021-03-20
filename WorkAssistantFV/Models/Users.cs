@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace Data.Models
 {
 
- public partial class Users:IMicron
+ public partial class Users
  {
         public Users()
         {
