@@ -29,10 +29,12 @@ namespace WorkAssistantFV
             MicronDbContext.AddConnectionSetup(config);
             var micron = new MicronDbContext();
 
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            TestDbContext dbContext = new TestDbContext();
+            
             Application.Run(new WorkAssistant());
+           
 
          
         }

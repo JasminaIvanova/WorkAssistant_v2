@@ -33,6 +33,7 @@ namespace WorkAssistantFV
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Utilities.BunifuPages.BunifuAnimatorNS.Animation animation1 = new Utilities.BunifuPages.BunifuAnimatorNS.Animation();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WorkAssistant));
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
@@ -75,7 +76,6 @@ namespace WorkAssistantFV
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties38 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties39 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties40 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WorkAssistant));
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuGradientPanel1 = new Bunifu.Framework.UI.BunifuGradientPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -85,6 +85,7 @@ namespace WorkAssistantFV
             this.bunifuFormDock1 = new Bunifu.UI.WinForms.BunifuFormDock();
             this.bunifuPages1 = new Bunifu.UI.WinForms.BunifuPages();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnExit = new Bunifu.UI.WinForms.BunifuImageButton();
             this.btnSignIn = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.bunifuSeparator2 = new Bunifu.UI.WinForms.BunifuSeparator();
             this.txtPassword2 = new Bunifu.UI.WinForms.BunifuTextBox();
@@ -102,7 +103,6 @@ namespace WorkAssistantFV
             this.txtPassword = new Bunifu.UI.WinForms.BunifuTextBox();
             this.txtPasswordConfirm = new Bunifu.UI.WinForms.BunifuTextBox();
             this.bunifuSeparator1 = new Bunifu.UI.WinForms.BunifuSeparator();
-            this.btnExit = new Bunifu.UI.WinForms.BunifuImageButton();
             this.bunifuGradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.bunifuPages1.SuspendLayout();
@@ -394,10 +394,10 @@ namespace WorkAssistantFV
             this.bunifuPages1.Location = new System.Drawing.Point(287, 22);
             this.bunifuPages1.Multiline = true;
             this.bunifuPages1.Name = "bunifuPages1";
-            this.bunifuPages1.Page = this.tabPage1;
-            this.bunifuPages1.PageIndex = 0;
-            this.bunifuPages1.PageName = "tabPage1";
-            this.bunifuPages1.PageTitle = "SignIn";
+            this.bunifuPages1.Page = this.tabPage2;
+            this.bunifuPages1.PageIndex = 1;
+            this.bunifuPages1.PageName = "tabPage2";
+            this.bunifuPages1.PageTitle = "SignUp";
             this.bunifuPages1.SelectedIndex = 0;
             this.bunifuPages1.Size = new System.Drawing.Size(692, 548);
             this.bunifuPages1.TabIndex = 3;
@@ -435,6 +435,41 @@ namespace WorkAssistantFV
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "SignIn";
             this.tabPage1.Click += new System.EventHandler(this.SignIn_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.ActiveImage = null;
+            this.btnExit.AllowAnimations = true;
+            this.btnExit.AllowBuffering = false;
+            this.btnExit.AllowToggling = false;
+            this.btnExit.AllowZooming = true;
+            this.btnExit.AllowZoomingOnFocus = false;
+            this.btnExit.BackColor = System.Drawing.Color.Transparent;
+            this.btnExit.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnExit.ErrorImage = ((System.Drawing.Image)(resources.GetObject("btnExit.ErrorImage")));
+            this.btnExit.FadeWhenInactive = false;
+            this.btnExit.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
+            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
+            this.btnExit.ImageActive = null;
+            this.btnExit.ImageLocation = null;
+            this.btnExit.ImageMargin = 40;
+            this.btnExit.ImageSize = new System.Drawing.Size(50, 50);
+            this.btnExit.ImageZoomSize = new System.Drawing.Size(90, 90);
+            this.btnExit.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnExit.InitialImage")));
+            this.btnExit.Location = new System.Drawing.Point(613, -14);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Rotation = 0;
+            this.btnExit.ShowActiveImage = true;
+            this.btnExit.ShowCursorChanges = true;
+            this.btnExit.ShowImageBorders = true;
+            this.btnExit.ShowSizeMarkers = false;
+            this.btnExit.Size = new System.Drawing.Size(90, 90);
+            this.btnExit.TabIndex = 7;
+            this.btnExit.ToolTipText = "";
+            this.btnExit.WaitOnLoad = false;
+            this.btnExit.Zoom = 40;
+            this.btnExit.ZoomSpeed = 10;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnSignIn
             // 
@@ -1446,41 +1481,6 @@ namespace WorkAssistantFV
             this.bunifuSeparator1.Size = new System.Drawing.Size(400, 17);
             this.bunifuSeparator1.TabIndex = 2;
             // 
-            // btnExit
-            // 
-            this.btnExit.ActiveImage = null;
-            this.btnExit.AllowAnimations = true;
-            this.btnExit.AllowBuffering = false;
-            this.btnExit.AllowToggling = false;
-            this.btnExit.AllowZooming = true;
-            this.btnExit.AllowZoomingOnFocus = false;
-            this.btnExit.BackColor = System.Drawing.Color.Transparent;
-            this.btnExit.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnExit.ErrorImage = ((System.Drawing.Image)(resources.GetObject("btnExit.ErrorImage")));
-            this.btnExit.FadeWhenInactive = false;
-            this.btnExit.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
-            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
-            this.btnExit.ImageActive = null;
-            this.btnExit.ImageLocation = null;
-            this.btnExit.ImageMargin = 40;
-            this.btnExit.ImageSize = new System.Drawing.Size(50, 50);
-            this.btnExit.ImageZoomSize = new System.Drawing.Size(90, 90);
-            this.btnExit.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnExit.InitialImage")));
-            this.btnExit.Location = new System.Drawing.Point(613, -14);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Rotation = 0;
-            this.btnExit.ShowActiveImage = true;
-            this.btnExit.ShowCursorChanges = true;
-            this.btnExit.ShowImageBorders = true;
-            this.btnExit.ShowSizeMarkers = false;
-            this.btnExit.Size = new System.Drawing.Size(90, 90);
-            this.btnExit.TabIndex = 7;
-            this.btnExit.ToolTipText = "";
-            this.btnExit.WaitOnLoad = false;
-            this.btnExit.Zoom = 40;
-            this.btnExit.ZoomSpeed = 10;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
             // WorkAssistant
             // 
             this.AccessibleName = "Work Assistant";
@@ -1492,6 +1492,7 @@ namespace WorkAssistantFV
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "WorkAssistant";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Work Assistant";
             this.bunifuGradientPanel1.ResumeLayout(false);

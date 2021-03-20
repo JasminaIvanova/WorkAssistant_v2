@@ -1,0 +1,25 @@
+﻿namespace WorkAssistantFV.Migrations
+{
+    using MySql.Data.Entity;
+    using System;
+    using System.Data.Entity;
+    using System.Data.Entity.Migrations;
+    using System.Linq;
+
+    internal sealed class Configuration : DbMigrationsConfiguration<WorkAssistantFV.TestDbContext>
+    {
+        public Configuration()
+        {
+            AutomaticMigrationsEnabled = true;
+            SetSqlGenerator("MySql.Data.MySqlClient", new myMigrationSQLGenerator());
+        }
+
+        protected override void Seed(WorkAssistantFV.TestDbContext context)
+        {
+            //  This method will be called after migrating to the latest version.
+
+            //  You can use the DbSet<T>.AddOrUpdate() helper extension method
+            //  to avoid creating duplicate seed data.
+        }
+    }
+}

@@ -27,6 +27,7 @@ CREATE TABLE overtime
 SELECT*FROM company;
 SELECT * FROM users;
 SELECT * FROM user_tasks;
+SELECT * FROM overtime;
 
 DROP DATABASE WorkAssistant;
 DROP TABLE users;

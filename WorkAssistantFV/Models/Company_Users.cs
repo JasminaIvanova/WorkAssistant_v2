@@ -1,16 +1,21 @@
 using Micron;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Data.Models
 {
-/***COMPANY_USER MODEL***/
-  [Table("company_users")]
+
  public partial class Company_Users : IMicron
- {
-        [Foreign(typeof(Company))]
-        public Int32 company_id {get; set;}
-        [Foreign(typeof(Users))]
-        public Int32 user_id {get; set;}
- }
+    {
+        [Key]
+        [ForeignKey("Company")]
+        public int company_id { get; set; }
+        public Company Company { get; set; }
+
+        [ForeignKey("Users")]
+        public int user_id { get; set; }
+        public Users Users { get; set; }
+    }
 }

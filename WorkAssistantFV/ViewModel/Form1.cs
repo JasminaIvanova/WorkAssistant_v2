@@ -14,7 +14,8 @@ namespace WorkAssistantFV
 {
     public partial class WorkAssistant : Form
     {
-        MicronDbContext micron = new MicronDbContext(); 
+       
+        Users user = new Users();
         public WorkAssistant()
         {
             InitializeComponent();
@@ -25,51 +26,43 @@ namespace WorkAssistantFV
         }
 
 
-        private void bunifuGradientPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void bunifuButton1_Click(object sender, EventArgs e)
+      
+        /// <summary>
+        /// button to set the page sign in 
+        /// </summary>
+        public void bunifuButton1_Click(object sender, EventArgs e)
         {
             bunifuPages1.SetPage(0);
         }
-
-        private void bunifuButton2_Click(object sender, EventArgs e)
+        /// <summary>
+        /// sets page to sign up
+        /// </summary>
+        public void bunifuButton2_Click(object sender, EventArgs e)
         {
             bunifuPages1.SetPage(1);
         }
 
-        private void bunifuLabel1_Click(object sender, EventArgs e)
+      
+
+        /// <summary>
+        /// create account and add it to database
+        /// </summary>
+        public void btnCreate_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void SignIn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bunifuTextBox1_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnCreate_Click(object sender, EventArgs e)
-        {
-            Users user = micron.GetRecord<Users>($"username='{txtUsername.Text}' AND password = MD5('{txtPassword.Text}')");
-            Company company = micron.GetRecord<Company>($"name_company='{txtCompany.Text}'");
-            user = new Users()
+            using (var db = TestDbContext.GetConnection())
             {
-                first_name = txtFirstName.Text,
-                last_name = txtLastName.Text,
-                email = txtEmail.Text,
-                username = txtUsername.Text,
-                password = Program.CalculateMD5(txtPassword.Text),
-                phone_number_contact = txtPhone.Text,
-                company_name = txtCompany.Text
-            };
-
+                if (db.Users.Any(x => x.username == txtUsername.Text))
+                {
+                    MessageBox.Show("This username is already taken!");
+                    return;
+                }
+                if (db.Users.Any(x => x.email == txtEmail.Text))
+                {
+                    MessageBox.Show("This email is already taken!");
+                    return;
+                }
+               
+            }
             if (txtPasswordConfirm.Text != txtPassword.Text) 
             {
                 MessageBox.Show("password does not match!");
@@ -106,78 +99,108 @@ namespace WorkAssistantFV
                 MessageBox.Show("Please insert username!");
                 return;
             }
-
-            List<Users> usersExisting = micron.GetRecords<Users>("SELECT username FROM users").ToList();
-            List<Users> emailsExisting = micron.GetRecords<Users>("SELECT email FROM users").ToList();
-
-            foreach (var username in usersExisting) 
+            user = new Users()
             {
-                if (username.username == txtUsername.Text) 
-                {
-                    MessageBox.Show("This username is already taken!");
-                    return;
-                }
+                first_name = txtFirstName.Text,
+                last_name = txtLastName.Text,
+                email = txtEmail.Text,
+                username = txtUsername.Text,
+                password = Program.CalculateMD5(txtPassword.Text),
+                phone_number_contact = txtPhone.Text,
+                company_name = txtCompany.Text
+            };
+            using (var db = TestDbContext.GetConnection()) 
+            {
+                db.Users.Add(user);
+                db.SaveChanges();
             }
 
-            foreach (var email in emailsExisting)
-            {
-                if (email.email == txtEmail.Text)
-                {
-                    MessageBox.Show("This email is already used!");
-                    return;
-                }
-            }
-
-            user = micron.Save(user);
+         
             MessageBox.Show("Account succesfully created!");
 
             txtFirstName.Text = txtLastName.Text =txtPhone.Text= txtEmail.Text = txtUsername.Text = txtPassword.Text = txtPasswordConfirm.Text = txtCompany.Text = string.Empty;
             bunifuPages1.SetPage(0);
         }
 
-        private void btnSignIn_Click(object sender, EventArgs e)
+        /// <summary>
+        /// sign in 
+        /// </summary>
+        public void btnSignIn_Click(object sender, EventArgs e)
         {
-            Users user = micron.GetRecord<Users>($"username='{txtUsername2.Text}' AND password = MD5('{txtPassword2.Text}')");
-            if (user == null) 
+            string pass = Program.CalculateMD5(txtPassword2.Text);
+            using (var db = TestDbContext.GetConnection()) 
             {
-                MessageBox.Show("Invalid username or password! Please try again!");
-                return;
+                try
+                {
+                    var user = db.Users.Where(x => x.username == txtUsername2.Text).First();
+                    if (user.password == pass) 
+                    {
+                        this.Visible = false;
+                        var home = new Home(user);
+                        home.ShowDialog();
+                        this.Visible = true;
+                    }
+                   
+                }
+                catch { 
+               
+                    MessageBox.Show("Invalid username or password! Please try again!");
+                    return;
+                }
+                
             }
-            this.Visible = false;
-            var home = new Home(user);
-            home.ShowDialog();
-            this.Visible = true;
             txtUsername2.Text = txtPassword2.Text = string.Empty;
         }
 
-        private void bunifuLabel2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtFirstName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtCompany_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bunifuImageButton1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnExit_Click(object sender, EventArgs e)
+        /// <summary>
+        /// close the window 
+        /// </summary>
+        public void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        public void bunifuGradientPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        public void bunifuLabel2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void txtFirstName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        public void txtCompany_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        public void bunifuImageButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+        public void bunifuLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void SignIn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void bunifuTextBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

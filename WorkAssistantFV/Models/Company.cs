@@ -7,13 +7,24 @@ namespace Data.Models
 /***COMPANY MODEL***/
   [Table("company")]
  public partial class Company : IMicron
- {
-        [Primary]
-        public Int32 id {get; set;}
-        public String name_company {get; set;}
-        public Int32 date_created {get; set;}
-        public String adress_company {get; set;}
-        public String owner_company {get; set;}
-        public String CEO_company {get; set;}
+    {
+        public Company()
+        {
+
+        }
+        public Company(string name, int date, string address, string owner, string ceo)
+        {
+            this.name_company = name;
+            this.date_created = date;
+            this.adress_company = address;
+            this.owner_company = owner;
+            this.CEO_company = ceo;
+        }
+        public int id {get; set;}
+        public string name_company {get; set;}
+        public int date_created {get; set;}
+        public string adress_company {get; set;}
+        public string owner_company {get; set;}
+        public string CEO_company {get; set;}
  }
 }

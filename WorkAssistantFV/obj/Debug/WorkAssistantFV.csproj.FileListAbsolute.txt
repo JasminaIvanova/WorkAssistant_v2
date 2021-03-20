@@ -384,3 +384,10 @@ C:\Users\Jessy\source\repos\WorkAssistant_v2\WorkAssistantFV\bin\Debug\nunit.eng
 C:\Users\Jessy\source\repos\WorkAssistant_v2\WorkAssistantFV\bin\Debug\nunit.engine.core.dll
 C:\Users\Jessy\source\repos\WorkAssistant_v2\WorkAssistantFV\bin\Debug\nunit.framework.dll
 C:\Users\Jessy\source\repos\WorkAssistant_v2\WorkAssistantFV\bin\Debug\nunit.framework.xml
+C:\Users\Jessy\source\repos\WorkAssistant_v2\WorkAssistantFV\bin\Debug\EntityFramework.dll
+C:\Users\Jessy\source\repos\WorkAssistant_v2\WorkAssistantFV\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Jessy\source\repos\WorkAssistant_v2\WorkAssistantFV\bin\Debug\EntityFramework.xml
+C:\Users\Jessy\source\repos\WorkAssistant_v2\WorkAssistantFV\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Jessy\source\repos\WorkAssistant_v2\WorkAssistantFV\bin\Debug\MySql.Data.Entity.EF6.dll
+C:\Users\Jessy\source\repos\WorkAssistant_v2\WorkAssistantFV\bin\Debug\MySql.Data.xml
+C:\Users\Jessy\source\repos\WorkAssistant_v2\WorkAssistantFV\obj\Debug\WorkAssistantFV.Migrations.initial.resources

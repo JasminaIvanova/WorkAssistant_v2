@@ -214,7 +214,7 @@ namespace WorkAssistantFV
             borderEdges1.TopRight = true;
             this.btnInfo.CustomizableEdges = borderEdges1;
             this.btnInfo.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnInfo.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.btnInfo.DisabledBorderColor = System.Drawing.Color.White;
             this.btnInfo.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.btnInfo.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
             this.btnInfo.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
@@ -238,7 +238,7 @@ namespace WorkAssistantFV
             this.btnInfo.IndicateFocus = false;
             this.btnInfo.Location = new System.Drawing.Point(12, 397);
             this.btnInfo.Name = "btnInfo";
-            this.btnInfo.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.btnInfo.OnDisabledState.BorderColor = System.Drawing.Color.White;
             this.btnInfo.OnDisabledState.BorderRadius = 30;
             this.btnInfo.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.btnInfo.OnDisabledState.BorderThickness = 1;
@@ -909,9 +909,9 @@ namespace WorkAssistantFV
             borderEdges7.TopRight = true;
             this.bunifuButton1.CustomizableEdges = borderEdges7;
             this.bunifuButton1.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.bunifuButton1.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.bunifuButton1.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.bunifuButton1.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.bunifuButton1.DisabledBorderColor = System.Drawing.Color.ForestGreen;
+            this.bunifuButton1.DisabledFillColor = System.Drawing.Color.ForestGreen;
+            this.bunifuButton1.DisabledForecolor = System.Drawing.Color.White;
             this.bunifuButton1.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
             this.bunifuButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.bunifuButton1.ForeColor = System.Drawing.Color.White;
@@ -933,12 +933,12 @@ namespace WorkAssistantFV
             this.bunifuButton1.IndicateFocus = false;
             this.bunifuButton1.Location = new System.Drawing.Point(586, 78);
             this.bunifuButton1.Name = "bunifuButton1";
-            this.bunifuButton1.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.bunifuButton1.OnDisabledState.BorderColor = System.Drawing.Color.ForestGreen;
             this.bunifuButton1.OnDisabledState.BorderRadius = 30;
             this.bunifuButton1.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.bunifuButton1.OnDisabledState.BorderThickness = 1;
-            this.bunifuButton1.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.bunifuButton1.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.bunifuButton1.OnDisabledState.FillColor = System.Drawing.Color.ForestGreen;
+            this.bunifuButton1.OnDisabledState.ForeColor = System.Drawing.Color.White;
             this.bunifuButton1.OnDisabledState.IconLeftImage = null;
             this.bunifuButton1.OnDisabledState.IconRightImage = null;
             this.bunifuButton1.onHoverState.BorderColor = System.Drawing.Color.ForestGreen;
@@ -957,11 +957,11 @@ namespace WorkAssistantFV
             this.bunifuButton1.OnIdleState.ForeColor = System.Drawing.Color.White;
             this.bunifuButton1.OnIdleState.IconLeftImage = ((System.Drawing.Image)(resources.GetObject("bunifuButton1.OnIdleState.IconLeftImage")));
             this.bunifuButton1.OnIdleState.IconRightImage = null;
-            this.bunifuButton1.OnPressedState.BorderColor = System.Drawing.Color.White;
+            this.bunifuButton1.OnPressedState.BorderColor = System.Drawing.Color.ForestGreen;
             this.bunifuButton1.OnPressedState.BorderRadius = 30;
             this.bunifuButton1.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.bunifuButton1.OnPressedState.BorderThickness = 1;
-            this.bunifuButton1.OnPressedState.FillColor = System.Drawing.Color.Transparent;
+            this.bunifuButton1.OnPressedState.FillColor = System.Drawing.Color.ForestGreen;
             this.bunifuButton1.OnPressedState.ForeColor = System.Drawing.Color.White;
             this.bunifuButton1.OnPressedState.IconLeftImage = null;
             this.bunifuButton1.OnPressedState.IconRightImage = null;
@@ -1005,9 +1005,10 @@ namespace WorkAssistantFV
             this.circle.SuperScriptMargin = new System.Windows.Forms.Padding(5, 50, 0, 0);
             this.circle.SuperScriptText = "%";
             this.circle.TabIndex = 16;
-            this.circle.Text = "0";
+            this.circle.Text = "30";
             this.circle.TextMargin = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.circle.ValueByTransition = 0;
+            this.circle.Value = 30;
+            this.circle.ValueByTransition = 30;
             this.circle.ValueMargin = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.circle.ProgressChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuCircleProgress.ProgressChangedEventArgs>(this.circle_ProgressChanged);
             // 

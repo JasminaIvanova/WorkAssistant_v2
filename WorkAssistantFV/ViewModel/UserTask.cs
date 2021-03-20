@@ -44,10 +44,17 @@ namespace WorkAssistantFV.ViewModel
 
         private void bunifuPictureBox1_Click(object sender, EventArgs e)
         {
-            User_Tasks task = micron.GetRecord<User_Tasks>($"SELECT * FROM user_tasks WHERE id = {id}");
-            micron.Delete<User_Tasks>(task);
-            lblTitle.Text = "Deleted";
-            txtForTask.Text = "Deleted";
+            using (var db = TestDbContext.GetConnection()) 
+            {
+                User_Tasks task = db.User_Tasks.Where(x => x.id == id).First();
+                db.User_Tasks.Remove(task);
+                db.SaveChanges();
+                lblTitle.Text = "Deleted";
+                txtForTask.Text = "Deleted";
+            }
+            //User_Tasks task = micron.GetRecord<User_Tasks>($"SELECT * FROM user_tasks WHERE id = {id}");
+            //micron.Delete<User_Tasks>(task);
+           
         }
 
         private void UserTask_Load(object sender, EventArgs e)

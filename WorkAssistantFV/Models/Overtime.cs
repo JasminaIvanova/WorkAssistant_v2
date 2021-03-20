@@ -1,20 +1,33 @@
 using Micron;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Data.Models
 {
-/***OVERTIME MODEL***/
-  [Table("overtime")]
+
  public partial class Overtime : IMicron
- {
-        [Primary]
-        public Int32 id {get; set;}
-        [Foreign(typeof(Users))]
-        public Int32 user_id {get; set;}
-        public String short_description {get; set;}
-        public String start_time {get; set;}
-        public String end_time {get; set;}
-        public String overtime_date {get; set;}
+
+    {
+        public Overtime()
+        {
+
+        }
+        public Overtime(string description, string start, string end, string date)
+        {
+            this.short_description = description;
+            this.start_time = start;
+            this.end_time = end;
+            this.overtime_date = date;
+        }
+        
+        public int id {get; set;}
+        [ForeignKey("Users")]
+        public int user_id {get; set;}
+        public Users Users { get; set; }
+        public string short_description {get; set;}
+        public string start_time {get; set;}
+        public string end_time {get; set;}
+        public string overtime_date {get; set;}
  }
 }
